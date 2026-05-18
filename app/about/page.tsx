@@ -29,17 +29,18 @@ export default function AboutPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative bg-brand-ink py-24 sm:py-28 overflow-hidden">
+      <section className="relative bg-brand-ink py-16 sm:py-20 overflow-hidden">
         <div className="absolute inset-0 hero-pattern opacity-50" />
         <div className="absolute top-0 right-0 w-96 h-96 bg-brand-red rounded-full blur-3xl opacity-15" />
+        <div className="absolute bottom-0 left-1/4 w-80 h-80 bg-brand-gold rounded-full blur-3xl opacity-10" />
         <div className="relative max-w-5xl mx-auto px-4 sm:px-6 text-center">
           <p className="text-brand-gold font-semibold tracking-widest uppercase text-sm mb-4">
             About Us
           </p>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
+          <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4 leading-tight">
             The <span className="gold-gradient-text">TCC</span> Story
           </h1>
-          <p className="text-brand-cream/80 text-lg sm:text-xl max-w-3xl mx-auto leading-relaxed">
+          <p className="text-brand-cream/80 text-lg max-w-3xl mx-auto leading-relaxed">
             A members&apos; club built on heritage, hospitality, and the spirit
             of the Telangana contractors community.
           </p>
@@ -47,9 +48,9 @@ export default function AboutPage() {
       </section>
 
       {/* History */}
-      <section className="bg-brand-cream py-20 sm:py-28">
+      <section className="bg-brand-cream py-6 sm:py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="grid lg:grid-cols-2 gap-14 items-center">
+          <div className="grid lg:grid-cols-2 gap-8 items-center">
             <div>
               <p className="text-brand-red font-semibold uppercase tracking-widest text-sm mb-3">
                 Our Heritage
@@ -63,7 +64,7 @@ export default function AboutPage() {
                 registered society on <strong>17 August 2016</strong>, founded
                 by a community of contractors from across Telangana who
                 envisioned an exclusive recreational and cultural destination
-                of their own — a place where members and their families could
+                of their own, a place where members and their families could
                 come together for fellowship, fine dining, cultural
                 celebrations, and sport.
               </p>
@@ -71,13 +72,13 @@ export default function AboutPage() {
                 What began as a vision out of Banjara Hills has, a decade
                 later, taken shape at Central Park, Serilingampalle, as{" "}
                 <strong>Hyderabad&apos;s first &ldquo;vertical&rdquo; club</strong>{" "}
-                — seven floors of banquet halls, an amphitheatre, more than
+                with seven floors of banquet halls, an amphitheatre, more than
                 thirty guest suites, a spa, swimming pool, multi-level
                 parking, and dedicated spaces for indoor and outdoor sports.
               </p>
               <p className="text-brand-ink/65 leading-relaxed">
                 Today the club stands as a working tribute to the spirit of
-                the contractors community — a space built by members, for
+                the contractors community, a space built by members, for
                 members and their families.
               </p>
             </div>
@@ -96,9 +97,9 @@ export default function AboutPage() {
       </section>
 
       {/* Values */}
-      <section className="bg-white py-20 sm:py-28 border-y border-brand-gold/20">
+      <section className="bg-white py-6 sm:py-8 border-y border-brand-gold/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="text-center mb-14">
+          <div className="text-center mb-5">
             <p className="text-brand-red font-semibold uppercase tracking-widest text-sm mb-3">
               What Drives Us
             </p>
@@ -126,21 +127,21 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Directors CTA */}
-      <section className="bg-brand-ink py-20">
+      {/* Committee CTA */}
+      <section className="bg-brand-ink py-6">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
           <h2 className="text-3xl sm:text-4xl font-bold text-white mb-5">
-            Meet Our Board of Directors
+            Meet Our Managing Committee
           </h2>
-          <p className="text-brand-cream/70 text-lg mb-8 max-w-2xl mx-auto">
-            The leadership team behind TCC — guiding the club&apos;s vision and
+          <p className="text-brand-cream/70 text-lg mb-5 max-w-2xl mx-auto">
+            The elected committee behind TCC, guiding the club&apos;s vision and
             ensuring excellence for our members.
           </p>
           <Link
-            href="/about/directors"
+            href="/about/committee"
             className="inline-flex items-center gap-2 bg-brand-red hover:bg-brand-red-dark text-white font-semibold px-7 py-3.5 rounded-xl transition-colors shadow-lg"
           >
-            View Directors <ArrowRight className="w-4 h-4" />
+            View Committee <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
       </section>

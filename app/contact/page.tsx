@@ -1,4 +1,4 @@
-import { Phone, Mail, MapPin, User, Briefcase, Calculator, Users, Building2, Utensils } from "lucide-react";
+import { Phone, Mail, MapPin, Briefcase, Calculator, Building2, Utensils, User, Users } from "lucide-react";
 
 type Staff = {
   icon: React.ComponentType<{ className?: string }>;
@@ -12,43 +12,46 @@ const staff: Staff[] = [
   {
     icon: Briefcase,
     role: "General Manager",
-    name: "Mr. Sunil",
-    phone: "[GM phone number to be added]",
+    name: "Mr. Sunil Persad",
+    phone: "+91 81210 07954",
     email: "gm@tccclub.in",
   },
   {
     icon: User,
     role: "Assistant General Manager",
-    name: "[AGM Name]",
-    phone: "[AGM phone number to be added]",
+    name: "To Be Announced",
     email: "agm@tccclub.in",
   },
   {
     icon: Calculator,
     role: "Accounts",
     name: "Mr. Sai",
-    phone: "[Accounts phone number to be added]",
+    phone: "+91 81210 42251",
     email: "accounts@tccclub.in",
   },
   {
     icon: Users,
-    role: "HR Manager",
-    name: "[HR Manager Name]",
-    phone: "[HR phone number to be added]",
+    role: "HR and Admin Manager",
+    name: "Ms. Girija",
     email: "hr@tccclub.in",
+  },
+  {
+    icon: Building2,
+    role: "TCCC Office",
+    name: "TCCC Office",
+    phone: "+91 81210 42201",
   },
   {
     icon: Building2,
     role: "Room Bookings",
     name: "Front Desk",
-    phone: "[Rooms reservation number to be added]",
     email: "rooms@tccclub.in",
   },
   {
     icon: Utensils,
-    role: "Restaurant Reservations",
+    role: "All Day Dining",
     name: "Restaurant Desk",
-    phone: "[Restaurant reservation number to be added]",
+    phone: "+91 81210 42206",
     email: "dining@tccclub.in",
   },
 ];
@@ -57,25 +60,26 @@ export default function ContactPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative bg-brand-ink py-24 sm:py-28 overflow-hidden">
+      <section className="relative bg-brand-ink py-16 sm:py-20 overflow-hidden">
         <div className="absolute inset-0 hero-pattern opacity-50" />
         <div className="absolute top-0 right-0 w-96 h-96 bg-brand-red rounded-full blur-3xl opacity-15" />
+        <div className="absolute bottom-0 left-1/4 w-80 h-80 bg-brand-gold rounded-full blur-3xl opacity-10" />
         <div className="relative max-w-5xl mx-auto px-4 sm:px-6 text-center">
           <p className="text-brand-gold font-semibold tracking-widest uppercase text-sm mb-4">
             Get In Touch
           </p>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
+          <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4 leading-tight">
             Contact <span className="gold-gradient-text">TCC</span>
           </h1>
-          <p className="text-brand-cream/80 text-lg sm:text-xl max-w-3xl mx-auto leading-relaxed">
-            For bookings, enquiries, memberships, or general questions — our
+          <p className="text-brand-cream/80 text-lg max-w-3xl mx-auto leading-relaxed">
+            For bookings, enquiries, memberships, or general questions, our
             team is here to help.
           </p>
         </div>
       </section>
 
       {/* Top contact cards */}
-      <section className="bg-brand-cream py-16">
+      <section className="bg-brand-cream py-4">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 grid sm:grid-cols-3 gap-6">
           <div className="bg-white rounded-2xl p-6 border border-brand-gold/20 shadow-sm text-center">
             <div className="w-14 h-14 bg-brand-red/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
@@ -95,10 +99,10 @@ export default function ContactPage() {
             </div>
             <h3 className="font-bold text-brand-ink mb-2">Email Us</h3>
             <a
-              href="mailto:info@tccclub.in"
+              href="mailto:info@tccclub.net"
               className="text-brand-ink/70 hover:text-brand-red"
             >
-              info@tccclub.in
+              info@tccclub.net
             </a>
           </div>
           <div className="bg-white rounded-2xl p-6 border border-brand-gold/20 shadow-sm text-center">
@@ -116,9 +120,9 @@ export default function ContactPage() {
       </section>
 
       {/* Staff Directory */}
-      <section className="bg-white py-20 sm:py-24 border-y border-brand-gold/20">
+      <section className="bg-white py-6 sm:py-4 border-y border-brand-gold/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="text-center mb-12">
+          <div className="text-center mb-5">
             <p className="text-brand-red font-semibold uppercase tracking-widest text-sm mb-3">
               Team Directory
             </p>
@@ -126,12 +130,6 @@ export default function ContactPage() {
               Speak to the Right Person
             </h2>
             <div className="divider-gold w-32 mx-auto" />
-          </div>
-          <div className="mb-8 text-center">
-            <p className="text-sm text-brand-ink/50 italic">
-              [Phone numbers are placeholders — final numbers will be updated
-              once shared by the club.]
-            </p>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {staff.map((s, idx) => {
@@ -189,9 +187,9 @@ export default function ContactPage() {
       </section>
 
       {/* Map */}
-      <section className="bg-brand-cream py-20 sm:py-24">
+      <section className="bg-brand-cream py-6 sm:py-4">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="text-center mb-10">
+          <div className="text-center mb-5">
             <p className="text-brand-red font-semibold uppercase tracking-widest text-sm mb-3">
               Find Us
             </p>

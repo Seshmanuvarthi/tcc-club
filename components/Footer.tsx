@@ -16,7 +16,7 @@ const memberLinks = [
   { label: "Online Booking", href: "/online-booking" },
   { label: "Online Payments", href: "/online-payments" },
   { label: "Newsletter", href: "/newsletter" },
-  { label: "Board of Directors", href: "/about/directors" },
+  { label: "Committee", href: "/about/committee" },
 ];
 
 export default function Footer() {

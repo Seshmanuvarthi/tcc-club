@@ -9,7 +9,7 @@ const geist = Geist({ subsets: ["latin"], variable: "--font-geist" });
 export const metadata: Metadata = {
   title: "Telangana Contractors Cultural Club",
   description:
-    "Telangana Contractors Cultural Club (TCC) — a premier members' club offering world-class banquets, dining, sports, swimming, gym, and cultural facilities.",
+    "Telangana Contractors Cultural Club (TCC), a premier members' club offering world-class banquets, dining, sports, swimming, gym, and cultural facilities.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

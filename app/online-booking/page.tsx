@@ -11,7 +11,7 @@ const bookingTypes = [
   { value: "Room Booking",           label: "Room Booking",           icon: Bed,        desc: "Book residential rooms for members and their guests." },
   { value: "Darbar Booking",         label: "Darbar Booking",         icon: Crown,      desc: "Reserve our Darbar hall for cultural or formal gatherings." },
   { value: "Table Booking",          label: "Table Booking",          icon: Utensils,   desc: "Reserve a table at the restaurant for an upcoming meal." },
-  { value: "Indoor Games Booking",   label: "Indoor Games",           icon: Gamepad2,   desc: "Reserve indoor games slots — billiards, table tennis, and more." },
+  { value: "Indoor Games Booking",   label: "Indoor Games",           icon: Gamepad2,   desc: "Reserve indoor games slots: billiards, table tennis, and more." },
   { value: "Outdoor Games Booking",  label: "Outdoor Games",          icon: Trees,      desc: "Reserve outdoor courts and sports facilities." },
 ] as const;
 
@@ -28,7 +28,7 @@ export default function OnlineBookingPage() {
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.SyntheticEvent<HTMLFormElement>) => {
     e.preventDefault();
     setSubmitting(true);
     setError(null);
@@ -64,14 +64,15 @@ export default function OnlineBookingPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative bg-brand-ink py-20 sm:py-24 overflow-hidden">
+      <section className="relative bg-brand-ink py-16 sm:py-20 overflow-hidden">
         <div className="absolute inset-0 hero-pattern opacity-50" />
         <div className="absolute top-0 right-0 w-96 h-96 bg-brand-red rounded-full blur-3xl opacity-15" />
+        <div className="absolute bottom-0 left-1/4 w-80 h-80 bg-brand-gold rounded-full blur-3xl opacity-10" />
         <div className="relative max-w-5xl mx-auto px-4 sm:px-6 text-center">
           <p className="text-brand-gold font-semibold tracking-widest uppercase text-sm mb-4">
             Reservations
           </p>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
+          <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4 leading-tight">
             Online <span className="gold-gradient-text">Booking</span>
           </h1>
           <p className="text-brand-cream/80 text-lg max-w-3xl mx-auto leading-relaxed">
@@ -83,7 +84,7 @@ export default function OnlineBookingPage() {
 
       {/* Step 1: Select booking type */}
       {step === "select" && (
-        <section className="bg-brand-cream py-16 sm:py-20">
+        <section className="bg-brand-cream py-6 sm:py-8">
           <div className="max-w-6xl mx-auto px-4 sm:px-6">
             <div className="text-center mb-10">
               <h2 className="text-2xl sm:text-3xl font-bold text-brand-ink mb-2">
@@ -122,7 +123,7 @@ export default function OnlineBookingPage() {
 
       {/* Step 2: Form */}
       {step === "form" && bookingType && (
-        <section className="bg-brand-cream py-16 sm:py-20">
+        <section className="bg-brand-cream py-6 sm:py-8">
           <div className="max-w-3xl mx-auto px-4 sm:px-6">
             <button
               type="button"
@@ -222,7 +223,7 @@ export default function OnlineBookingPage() {
 
       {/* Step 3: Done */}
       {step === "done" && (
-        <section className="bg-brand-cream py-20 sm:py-24">
+        <section className="bg-brand-cream py-6 sm:py-8">
           <div className="max-w-2xl mx-auto px-4 sm:px-6">
             <div className="bg-white rounded-3xl p-10 sm:p-14 border-2 border-brand-gold/30 shadow-xl text-center">
               <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">

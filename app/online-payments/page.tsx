@@ -5,17 +5,18 @@ export default function OnlinePaymentsPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative bg-brand-ink py-24 sm:py-28 overflow-hidden">
+      <section className="relative bg-brand-ink py-16 sm:py-20 overflow-hidden">
         <div className="absolute inset-0 hero-pattern opacity-50" />
         <div className="absolute top-0 right-0 w-96 h-96 bg-brand-red rounded-full blur-3xl opacity-15" />
+        <div className="absolute bottom-0 left-1/4 w-80 h-80 bg-brand-gold rounded-full blur-3xl opacity-10" />
         <div className="relative max-w-5xl mx-auto px-4 sm:px-6 text-center">
           <p className="text-brand-gold font-semibold tracking-widest uppercase text-sm mb-4">
             Members&apos; Portal
           </p>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
+          <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4 leading-tight">
             Online <span className="gold-gradient-text">Payments</span>
           </h1>
-          <p className="text-brand-cream/80 text-lg sm:text-xl max-w-3xl mx-auto leading-relaxed">
+          <p className="text-brand-cream/80 text-lg max-w-3xl mx-auto leading-relaxed">
             Pay your membership dues, event bills, and other charges securely
             through the official TCC members&apos; portal.
           </p>
@@ -23,7 +24,7 @@ export default function OnlinePaymentsPage() {
       </section>
 
       {/* Main payment card */}
-      <section className="bg-brand-cream py-20 sm:py-24">
+      <section className="bg-brand-cream py-6 sm:py-8">
         <div className="max-w-3xl mx-auto px-4 sm:px-6">
           <div className="bg-white rounded-3xl p-8 sm:p-12 border-2 border-brand-gold/30 shadow-xl text-center">
             <div className="w-20 h-20 bg-brand-red rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg shadow-brand-red/20">
@@ -56,7 +57,7 @@ export default function OnlinePaymentsPage() {
       </section>
 
       {/* Info row */}
-      <section className="bg-white py-16 border-y border-brand-gold/20">
+      <section className="bg-white py-6 sm:py-8 border-y border-brand-gold/20">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 grid sm:grid-cols-3 gap-6">
           <div className="text-center">
             <div className="w-12 h-12 bg-brand-gold/15 rounded-xl flex items-center justify-center mx-auto mb-4">
@@ -74,7 +75,7 @@ export default function OnlinePaymentsPage() {
             </div>
             <h3 className="font-bold text-brand-ink mb-1">24×7</h3>
             <p className="text-brand-ink/60 text-sm">
-              Pay anytime, from anywhere — no need to visit the club office.
+              Pay anytime, from anywhere. No need to visit the club office.
             </p>
           </div>
           <div className="text-center">
@@ -90,11 +91,11 @@ export default function OnlinePaymentsPage() {
       </section>
 
       {/* Help CTA */}
-      <section className="bg-brand-cream py-16">
+      <section className="bg-brand-cream py-6 sm:py-8">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
-          <h3 className="text-2xl font-bold text-brand-ink mb-3">
+          <h2 className="text-3xl sm:text-4xl font-bold text-brand-ink mb-3">
             Trouble paying online?
-          </h3>
+          </h2>
           <p className="text-brand-ink/70 mb-6">
             Get in touch with our accounts team and we&apos;ll help you out.
           </p>
