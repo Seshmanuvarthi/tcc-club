@@ -1,5 +1,5 @@
-import Image from "next/image";
 import { listGallery } from "@/lib/blob";
+import GalleryGrid from "./GalleryGrid";
 
 export const dynamic = "force-dynamic";
 
@@ -43,50 +43,7 @@ export default async function GalleryPage() {
 
       <section className="bg-brand-cream py-6 sm:py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-            {localItems.map((item, idx) => (
-              <div
-                key={`local-${idx}`}
-                className="group relative aspect-square rounded-2xl overflow-hidden bg-white border border-brand-gold/30 shadow-sm card-hover"
-              >
-                <Image
-                  src={item.src}
-                  alt={item.alt}
-                  fill
-                  sizes="(max-width: 768px) 50vw, 25vw"
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-brand-ink/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-4">
-                  <p className="text-brand-gold text-xs uppercase tracking-widest font-semibold">
-                    {item.category}
-                  </p>
-                  <p className="text-white text-sm font-bold">{item.alt}</p>
-                </div>
-              </div>
-            ))}
-
-            {uploaded.map((item) => (
-              <div
-                key={item.id}
-                className="group relative aspect-square rounded-2xl overflow-hidden bg-white border border-brand-gold/30 shadow-sm card-hover"
-              >
-                <Image
-                  src={item.url}
-                  alt={item.caption}
-                  fill
-                  sizes="(max-width: 768px) 50vw, 25vw"
-                  className="object-cover"
-                  unoptimized
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-brand-ink/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-4">
-                  <p className="text-white text-sm font-bold">
-                    {item.caption}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-
+          <GalleryGrid localItems={localItems} uploaded={uploaded} />
         </div>
       </section>
     </>

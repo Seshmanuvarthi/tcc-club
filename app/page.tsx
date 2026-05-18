@@ -50,7 +50,7 @@ export default function Home() {
   return (
     <>
       {/* ── HERO ─────────────────────────────────────────── */}
-      <section className="relative min-h-[90vh] h-[90vh] flex items-center overflow-hidden">
+      <section className="relative min-h-[92vh] h-[92vh] flex items-center overflow-hidden">
         {/* Banner background image */}
         <Image
           src="/images/banner.jpg"
