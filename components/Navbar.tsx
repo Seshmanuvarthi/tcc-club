@@ -12,13 +12,8 @@ const navConfig: Array<
   { label: "Home", href: "/" },
   { label: "Daily Menu", href: "/daily-menu" },
   { label: "Facilities", href: "/facilities" },
-  {
-    label: "About Us",
-    dropdown: [
-      { label: "Our Club", href: "/about" },
-      { label: "Board of Directors", href: "/about/directors" },
-    ],
-  },
+  { label: "About Us", href: "/about" },
+  { label: "Committee", href: "/about/committee" },
   { label: "Gallery", href: "/gallery" },
   { label: "Newsletter", href: "/newsletter" },
   { label: "Contact Us", href: "/contact" },
@@ -47,12 +42,12 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2.5 flex-shrink-0">
+          <Link href="/" className="flex items-center gap-2.5 shrink-0">
             <Image
               src="/images/logo.png"
               alt="TCC Logo"
-              width={44}
-              height={44}
+              width={40}
+              height={40}
               className="rounded-full"
               priority
             />
@@ -60,14 +55,14 @@ export default function Navbar() {
               <div className="font-bold text-brand-red text-sm tracking-wide">
                 Telangana Contractors
               </div>
-              <div className="text-[11px] text-brand-gold-dark font-semibold tracking-widest uppercase">
+              <div className="text-[10px] text-brand-gold-dark font-semibold tracking-widest uppercase">
                 Cultural Club
               </div>
             </div>
           </Link>
 
           {/* Desktop Nav */}
-          <div className="hidden lg:flex items-center gap-1">
+          <div className="hidden lg:flex items-center gap-0.5">
             {navConfig.map((item) =>
               "dropdown" in item ? (
                 <div key={item.label} className="relative group">
@@ -76,7 +71,7 @@ export default function Navbar() {
                     <ChevronDown className="w-3.5 h-3.5 transition-transform group-hover:rotate-180" />
                   </button>
                   <div className="absolute top-full left-0 pt-2 hidden group-hover:block nav-dropdown">
-                    <div className="bg-white border border-brand-gold/30 shadow-xl rounded-xl overflow-hidden min-w-[220px]">
+                    <div className="bg-white border border-brand-gold/30 shadow-xl rounded-xl overflow-hidden min-w-55">
                       {item.dropdown.map((sub) => (
                         <Link
                           key={sub.href}
@@ -105,13 +100,13 @@ export default function Navbar() {
           <div className="hidden lg:flex items-center gap-2">
             <Link
               href="/online-payments"
-              className="border-2 border-brand-gold text-brand-gold-dark hover:bg-brand-gold hover:text-white text-sm font-semibold px-4 py-2 rounded-lg transition-colors"
+              className="border-2 border-brand-gold text-brand-gold-dark hover:bg-brand-gold hover:text-white text-sm font-semibold px-4 py-1.5 rounded-lg transition-colors"
             >
               Online Payment
             </Link>
             <Link
               href="/online-booking"
-              className="bg-brand-red hover:bg-brand-red-dark text-white text-sm font-semibold px-4 py-2 rounded-lg transition-colors shadow-sm"
+              className="bg-brand-red hover:bg-brand-red-dark text-white text-sm font-semibold px-4 py-1.5 rounded-lg transition-colors shadow-sm"
             >
               Online Booking
             </Link>

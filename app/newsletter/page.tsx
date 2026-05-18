@@ -12,14 +12,15 @@ export default async function NewsletterPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative bg-brand-ink py-20 sm:py-24 overflow-hidden">
+      <section className="relative bg-brand-ink py-16 sm:py-20 overflow-hidden">
         <div className="absolute inset-0 hero-pattern opacity-50" />
         <div className="absolute top-0 right-0 w-96 h-96 bg-brand-red rounded-full blur-3xl opacity-15" />
+        <div className="absolute bottom-0 left-1/4 w-80 h-80 bg-brand-gold rounded-full blur-3xl opacity-10" />
         <div className="relative max-w-5xl mx-auto px-4 sm:px-6 text-center">
           <p className="text-brand-gold font-semibold tracking-widest uppercase text-sm mb-4">
             News &amp; Updates
           </p>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
+          <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4 leading-tight">
             TCC <span className="gold-gradient-text">Newsletter</span>
           </h1>
           <p className="text-brand-cream/80 text-lg max-w-3xl mx-auto leading-relaxed">
@@ -40,7 +41,7 @@ export default async function NewsletterPage() {
       </section>
 
       {/* List */}
-      <section className="bg-brand-cream py-16 sm:py-20">
+      <section className="bg-brand-cream py-6 sm:py-8">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           {items.length === 0 ? (
             <div className="bg-white rounded-3xl p-12 sm:p-16 border border-brand-gold/30 shadow-xl text-center max-w-2xl mx-auto">
@@ -138,9 +139,9 @@ export default async function NewsletterPage() {
       </section>
 
       {/* Subscribe / Follow CTA */}
-      <section className="bg-brand-ink py-16">
+      <section className="bg-brand-ink py-6 sm:py-8">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
-          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3">
+          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-3">
             Stay Updated
           </h2>
           <p className="text-brand-cream/70 mb-6">

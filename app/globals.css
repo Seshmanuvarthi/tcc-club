@@ -18,12 +18,13 @@
   --color-brand-gold-dark: var(--brand-gold-dark);
   --color-brand-cream: var(--brand-cream);
   --color-brand-ink: var(--brand-ink);
+  --font-sans: var(--font-geist), system-ui, -apple-system, sans-serif;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: system-ui, -apple-system, sans-serif;
+  font-family: var(--font-geist), system-ui, -apple-system, sans-serif;
   scroll-behavior: smooth;
 }
 

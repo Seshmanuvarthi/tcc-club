@@ -11,25 +11,26 @@ export default async function DailyMenuPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative bg-brand-ink py-20 sm:py-24 overflow-hidden">
+      <section className="relative bg-brand-ink py-16 sm:py-20 overflow-hidden">
         <div className="absolute inset-0 hero-pattern opacity-50" />
         <div className="absolute top-0 right-0 w-96 h-96 bg-brand-red rounded-full blur-3xl opacity-15" />
+        <div className="absolute bottom-0 left-1/4 w-80 h-80 bg-brand-gold rounded-full blur-3xl opacity-10" />
         <div className="relative max-w-5xl mx-auto px-4 sm:px-6 text-center">
           <p className="text-brand-gold font-semibold tracking-widest uppercase text-sm mb-4">
             Today&apos;s Specials
           </p>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
+          <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4 leading-tight">
             Daily <span className="gold-gradient-text">Menu</span>
           </h1>
           <p className="text-brand-cream/80 text-lg max-w-3xl mx-auto leading-relaxed">
-            Fresh, delicious, and always changing — here&apos;s what&apos;s on
+            Fresh, delicious, and always changing. Here&apos;s what&apos;s on
             offer at the TCC restaurant today.
           </p>
         </div>
       </section>
 
       {/* Menu display */}
-      <section className="bg-brand-cream py-16 sm:py-20">
+      <section className="bg-brand-cream py-6 sm:py-8">
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
           {menu ? (
             <div className="bg-white rounded-3xl p-4 sm:p-6 border border-brand-gold/30 shadow-xl">
