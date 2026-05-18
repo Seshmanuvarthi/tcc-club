@@ -60,7 +60,12 @@ export default function NewsletterList({ items }: { items: NewsletterItem[] }) {
                 {item.filename}
               </p>
               <p className="text-brand-ink/50 text-xs mb-3">
-                {new Date(item.uploadedAt).toLocaleString("en-IN")}
+                {new Date(item.uploadedAt).toLocaleString("en-IN", {
+                  dateStyle: "medium",
+                  timeStyle: "short",
+                  timeZone: "Asia/Kolkata",
+                })}{" "}
+                IST
               </p>
 
               <div className="flex flex-wrap gap-2">

@@ -56,7 +56,12 @@ export default async function AdminMenuPage() {
               </div>
               <p className="text-xs text-brand-ink/50 mt-2">
                 Last updated:{" "}
-                {new Date(current.uploadedAt).toLocaleString("en-IN")}
+                {new Date(current.uploadedAt).toLocaleString("en-IN", {
+                  dateStyle: "medium",
+                  timeStyle: "short",
+                  timeZone: "Asia/Kolkata",
+                })}{" "}
+                IST
               </p>
             </div>
           )}

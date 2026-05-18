@@ -108,6 +108,7 @@ export default async function NewsletterPage() {
                           day: "numeric",
                           month: "long",
                           year: "numeric",
+                          timeZone: "Asia/Kolkata",
                         })}
                       </p>
                       <div className="mt-auto flex gap-2">

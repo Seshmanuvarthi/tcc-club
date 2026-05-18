@@ -41,7 +41,9 @@ export default async function DailyMenuPage() {
                     {new Date(menu.uploadedAt).toLocaleString("en-IN", {
                       dateStyle: "full",
                       timeStyle: "short",
-                    })}
+                      timeZone: "Asia/Kolkata",
+                    })}{" "}
+                    IST
                   </span>
                 </p>
               </div>
