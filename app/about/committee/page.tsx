@@ -1,21 +1,21 @@
 const members = [
-  { sno: 1,  designation: "President",       mcode: "FM01",  name: "Mr. Bollineni Seenaiah" },
-  { sno: 2,  designation: "Vice President",  mcode: "FM09",  name: "Mr. Sreepathi Narsimha Reddy" },
-  { sno: 3,  designation: "Secretary",       mcode: "FM03",  name: "Mr. Nimma Sachitanand Reddy" },
-  { sno: 4,  designation: "Joint Secretary", mcode: "FM04",  name: "Mr. Vemula Satya Murthy" },
-  { sno: 5,  designation: "Treasurer",       mcode: "FM05",  name: "Mr. Balmuri Sugunakar Rao" },
-  { sno: 6,  designation: "Director",        mcode: "FM02",  name: "Mr. Dachireddy Venkat Narsimha Reddy" },
-  { sno: 7,  designation: "Director",        mcode: "FM17",  name: "Mr. Vaddi Bhaskar Reddy" },
-  { sno: 8,  designation: "Director",        mcode: "FM14",  name: "Mr. Vanga Ravinder Reddy" },
-  { sno: 9,  designation: "Director",        mcode: "FM12",  name: "Mr. Velpucherla Sudhakar" },
-  { sno: 10, designation: "Director",        mcode: "FM16",  name: "Mr. Katukuri Devender Reddy" },
-  { sno: 11, designation: "Director",        mcode: "FM11",  name: "Mr. Yavanamanda Sitarama Raju" },
-  { sno: 12, designation: "Director",        mcode: "FM21",  name: "Mr. Uppula Surender" },
-  { sno: 13, designation: "Director",        mcode: "FM08",  name: "Mr. Sankineni Krishna Rao" },
-  { sno: 14, designation: "Director",        mcode: "FM-47", name: "Mr. Madireddy Narender Reddy" },
-  { sno: 15, designation: "Director",        mcode: "FM13",  name: "Mr. Patlolla Janardhan Reddy" },
-  { sno: 16, designation: "Director",        mcode: "FM07",  name: "Mr. Churukanti Pavan" },
-  { sno: 17, designation: "Director",        mcode: "FM10",  name: "Mr. Nerella Janardana Rao" },
+  { sno: 1,  designation: "President",       name: "Mr. Bollineni Seenaiah" },
+  { sno: 2,  designation: "Vice President",  name: "Mr. Sreepathi Narsimha Reddy" },
+  { sno: 3,  designation: "Secretary",       name: "Mr. Nimma Sachitanand Reddy" },
+  { sno: 4,  designation: "Joint Secretary", name: "Mr. Vemula Satya Murthy" },
+  { sno: 5,  designation: "Treasurer",       name: "Mr. Balmuri Sugunakar Rao" },
+  { sno: 6,  designation: "Director",        name: "Mr. Dachireddy Venkat Narsimha Reddy" },
+  { sno: 7,  designation: "Director",        name: "Mr. Vaddi Bhaskar Reddy" },
+  { sno: 8,  designation: "Director",        name: "Mr. Vanga Ravinder Reddy" },
+  { sno: 9,  designation: "Director",        name: "Mr. Velpucherla Sudhakar" },
+  { sno: 10, designation: "Director",        name: "Mr. Katukuri Devender Reddy" },
+  { sno: 11, designation: "Director",        name: "Mr. Yavanamanda Sitarama Raju" },
+  { sno: 12, designation: "Director",        name: "Mr. Uppula Surender" },
+  { sno: 13, designation: "Director",        name: "Mr. Sankineni Krishna Rao" },
+  { sno: 14, designation: "Director",        name: "Mr. Madireddy Narender Reddy" },
+  { sno: 15, designation: "Director",        name: "Mr. Patlolla Janardhan Reddy" },
+  { sno: 16, designation: "Director",        name: "Mr. Churukanti Pavan" },
+  { sno: 17, designation: "Director",        name: "Mr. Nerella Janardana Rao" },
 ];
 
 const isOfficer = (d: string) => d !== "Director";
@@ -61,14 +61,13 @@ export default function CommitteePage() {
                 <tr className="bg-brand-ink text-white">
                   <th className="text-center px-4 py-3 font-semibold uppercase tracking-wider text-xs w-12">S.No</th>
                   <th className="text-left px-4 py-3 font-semibold uppercase tracking-wider text-xs">Designation</th>
-                  <th className="text-left px-4 py-3 font-semibold uppercase tracking-wider text-xs hidden sm:table-cell">Member Code</th>
                   <th className="text-left px-4 py-3 font-semibold uppercase tracking-wider text-xs">Name</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-brand-gold/15">
                 {members.map((m) => (
                   <tr
-                    key={m.mcode}
+                    key={m.sno}
                     className={`transition-colors hover:bg-brand-gold/5 ${
                       isOfficer(m.designation) ? "bg-white" : "bg-brand-cream/50"
                     }`}
@@ -79,7 +78,6 @@ export default function CommitteePage() {
                         {m.designation}
                       </span>
                     </td>
-                    <td className="px-4 py-3 text-brand-ink/50 font-mono text-xs hidden sm:table-cell">{m.mcode}</td>
                     <td className="px-4 py-3 font-medium text-brand-ink">{m.name}</td>
                   </tr>
                 ))}

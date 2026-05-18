@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import {
   Utensils, Building2, Waves, Dumbbell, Trophy,
-  Bed, Music, Wine, Brain, ArrowRight, CheckCircle2,
+  Bed, Music, Wine, Brain, Theater, ArrowRight, CheckCircle2,
 } from "lucide-react";
 
 type Facility = {
@@ -92,6 +92,11 @@ const additional = [
     icon: Bed,
     title: "Luxury Rooms",
     desc: "Elegantly appointed luxury suites for members and their visiting guests, ideal for outstation visitors or members staying after events.",
+  },
+  {
+    icon: Theater,
+    title: "Amphitheatre",
+    desc: "An elegant amphitheatre venue for cultural performances, music nights, recitals, and large community gatherings, with stage and audio-visual support.",
   },
   {
     icon: Music,

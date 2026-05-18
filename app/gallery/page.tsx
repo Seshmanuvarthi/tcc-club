@@ -87,11 +87,6 @@ export default async function GalleryPage() {
             ))}
           </div>
 
-          {uploaded.length === 0 && (
-            <p className="text-center text-brand-ink/40 text-sm italic mt-10">
-              More photos will appear here as they are added by the club.
-            </p>
-          )}
         </div>
       </section>
     </>
