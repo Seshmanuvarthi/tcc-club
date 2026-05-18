@@ -59,19 +59,26 @@ export default function AboutPage() {
                 <span className="red-gradient-text">Community</span>
               </h2>
               <p className="text-brand-ink/75 text-lg mb-5 leading-relaxed">
-                The Telangana Contractors Cultural Club was founded as a
-                gathering place for the contractors community of Telangana — a
-                space where members could come together socially, culturally,
-                and professionally.
+                The Telangana Contractors Cultural Club was incorporated as a
+                registered society on <strong>17 August 2016</strong>, founded
+                by a community of contractors from across Telangana who
+                envisioned an exclusive recreational and cultural destination
+                of their own — a place where members and their families could
+                come together for fellowship, fine dining, cultural
+                celebrations, and sport.
               </p>
               <p className="text-brand-ink/65 mb-5 leading-relaxed">
-                What began as a vision has grown into one of Hyderabad&apos;s
-                premier members&apos; clubs, with facilities spanning fine
-                dining, banquets, swimming, sports, and cultural events for
-                members and their families.
+                What began as a vision out of Banjara Hills has, a decade
+                later, taken shape at Central Park, Serilingampalle, as{" "}
+                <strong>Hyderabad&apos;s first &ldquo;vertical&rdquo; club</strong>{" "}
+                — seven floors of banquet halls, an amphitheatre, more than
+                thirty guest suites, a spa, swimming pool, multi-level
+                parking, and dedicated spaces for indoor and outdoor sports.
               </p>
-              <p className="text-sm text-brand-ink/50 italic">
-                [Full history text to be provided by the club.]
+              <p className="text-brand-ink/65 leading-relaxed">
+                Today the club stands as a working tribute to the spirit of
+                the contractors community — a space built by members, for
+                members and their families.
               </p>
             </div>
             <div className="relative">

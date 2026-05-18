@@ -85,8 +85,8 @@ const additional = [
   },
   {
     icon: Bed,
-    title: "Residential Rooms",
-    desc: "Comfortable guest rooms for members and their visitors. Ideal for outstation guests or members staying over after events.",
+    title: "30+ Guest Suites",
+    desc: "More than thirty residential suites for members and their visiting families. Ideal for outstation guests or members staying over after events.",
   },
   {
     icon: Music,
@@ -117,8 +117,9 @@ export default function FacilitiesPage() {
             <span className="gold-gradient-text">TCC Facilities</span>
           </h1>
           <p className="text-brand-cream/80 text-lg sm:text-xl max-w-3xl mx-auto leading-relaxed">
-            From banquets to dining, swimming to sports — every facility at TCC
-            is designed for the comfort, joy, and pride of our members.
+            Hyderabad&apos;s first vertical club — seven floors of banquets,
+            dining, sports, wellness, and guest suites, all designed for the
+            comfort, joy, and pride of our members.
           </p>
         </div>
       </section>

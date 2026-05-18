@@ -123,20 +123,18 @@ export default function Home() {
                 </span>
               </h2>
               <p className="text-brand-ink/75 text-lg mb-5 leading-relaxed">
-                The Telangana Contractors Cultural Club was founded with a
-                simple purpose — to provide the contractors community a place
-                of their own. A space to celebrate, to gather, to network, and
-                to share moments that matter, alongside families and friends.
+                Founded as a registered society in 2016 by a group of
+                contractors from across Telangana, the Telangana Contractors
+                Cultural Club was envisioned as an exclusive members&apos;
+                destination — a place dedicated to fellowship, cultural
+                activities, fine dining, sports, and family gatherings.
               </p>
               <p className="text-brand-ink/65 mb-8 leading-relaxed">
-                Over the years, the club has grown into a complete hospitality
-                destination, with banquets, dining, swimming, sports, and event
-                facilities that rival the finest clubs in Hyderabad. Through
-                every chapter, the spirit of community has remained at its
-                heart.
-              </p>
-              <p className="text-sm text-brand-ink/50 italic mb-8">
-                [Placeholder — full club history to be provided.]
+                Today the club stands at Central Park, Serilingampalle, as
+                Hyderabad&apos;s first vertical members&apos; club — a
+                seven-floor landmark bringing banquet halls, dining, swimming,
+                sports, spa, and guest suites together under one roof, built
+                by the community for the community.
               </p>
               <Link
                 href="/about"
