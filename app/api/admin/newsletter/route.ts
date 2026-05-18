@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { requireAdmin } from "@/lib/session";
-import { uploadNewsletter } from "@/lib/blob";
+import { uploadNewsletter, deleteNewsletter } from "@/lib/blob";
 
 const ACCEPTED = ["image/jpeg", "image/png", "image/webp", "application/pdf"];
 
@@ -45,6 +45,39 @@ export async function POST(request: Request) {
     console.error("uploadNewsletter failed", err);
     return NextResponse.json(
       { error: "Upload failed. Check server logs." },
+      { status: 500 }
+    );
+  }
+}
+
+export async function DELETE(request: Request) {
+  const session = await requireAdmin();
+  if (!session) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
+  if (!process.env.BLOB_READ_WRITE_TOKEN) {
+    return NextResponse.json(
+      { error: "BLOB_READ_WRITE_TOKEN is not configured." },
+      { status: 500 }
+    );
+  }
+
+  const url = new URL(request.url);
+  const fileUrl = url.searchParams.get("url");
+  if (!fileUrl) {
+    return NextResponse.json({ error: "Missing url" }, { status: 400 });
+  }
+
+  try {
+    await deleteNewsletter(fileUrl);
+    return NextResponse.json({ ok: true });
+  } catch (err) {
+    console.error("deleteNewsletter failed", err);
+    return NextResponse.json(
+      {
+        error:
+          err instanceof Error ? err.message : "Delete failed",
+      },
       { status: 500 }
     );
   }

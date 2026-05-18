@@ -1,28 +1,26 @@
 import Image from "next/image";
-import { Camera } from "lucide-react";
+import { listGallery } from "@/lib/blob";
 
-type GalleryItem = {
-  src?: string;
+export const dynamic = "force-dynamic";
+
+type LocalItem = {
+  src: string;
   alt: string;
   category: string;
 };
 
-const galleryItems: GalleryItem[] = [
-  { src: "/images/banquets.png",        alt: "Banquet Hall",        category: "Banquets" },
-  { src: "/images/restaurantandbar.png", alt: "Restaurant and Bar",  category: "Dining" },
-  { src: "/images/swimmingpool.png",    alt: "Swimming Pool",        category: "Swimming" },
-  { src: "/images/gymandyoga.png",      alt: "Gym and Yoga",         category: "Fitness" },
-  { src: "/images/ameneties.png",       alt: "Amenities",            category: "Amenities" },
-  { src: "/images/membership.png",      alt: "Membership",           category: "Membership" },
-  { alt: "Cultural Event",      category: "Events" },
-  { alt: "Family Day",          category: "Events" },
-  { alt: "Indoor Games",        category: "Sports" },
-  { alt: "Outdoor Sports",      category: "Sports" },
-  { alt: "Festive Celebration", category: "Events" },
-  { alt: "Lounge & Bar",        category: "Dining" },
+const localItems: LocalItem[] = [
+  { src: "/images/banquets.png",         alt: "Banquet Hall",         category: "Banquets" },
+  { src: "/images/restaurantandbar.png", alt: "Restaurant and Bar",   category: "Dining" },
+  { src: "/images/swimmingpool.png",     alt: "Swimming Pool",        category: "Swimming" },
+  { src: "/images/gymandyoga.png",       alt: "Gym and Yoga",         category: "Fitness" },
+  { src: "/images/ameneties.png",        alt: "World Class Amenities", category: "Amenities" },
+  { src: "/images/membership.png",       alt: "Memberships Open",     category: "Membership" },
 ];
 
-export default function GalleryPage() {
+export default async function GalleryPage() {
+  const uploaded = await listGallery();
+
   return (
     <>
       <section className="relative bg-brand-ink py-24 sm:py-28 overflow-hidden">
@@ -44,37 +42,19 @@ export default function GalleryPage() {
 
       <section className="bg-brand-cream py-20 sm:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="mb-8 text-center">
-            <p className="text-sm text-brand-ink/50 italic">
-              [Placeholder gallery — official photographs will be added once
-              shared by the club.]
-            </p>
-          </div>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-            {galleryItems.map((item, idx) => (
+            {localItems.map((item, idx) => (
               <div
-                key={idx}
+                key={`local-${idx}`}
                 className="group relative aspect-square rounded-2xl overflow-hidden bg-white border border-brand-gold/30 shadow-sm card-hover"
               >
-                {item.src ? (
-                  <Image
-                    src={item.src}
-                    alt={item.alt}
-                    fill
-                    sizes="(max-width: 768px) 50vw, 25vw"
-                    className="object-cover"
-                  />
-                ) : (
-                  <div className="absolute inset-0 bg-gradient-to-br from-brand-cream to-brand-gold/20 flex flex-col items-center justify-center text-center p-4">
-                    <Camera className="w-10 h-10 text-brand-gold-dark mb-2 opacity-60" />
-                    <p className="text-xs font-semibold text-brand-ink/60 uppercase tracking-widest">
-                      {item.category}
-                    </p>
-                    <p className="text-xs text-brand-ink/40 mt-1">
-                      [Placeholder]
-                    </p>
-                  </div>
-                )}
+                <Image
+                  src={item.src}
+                  alt={item.alt}
+                  fill
+                  sizes="(max-width: 768px) 50vw, 25vw"
+                  className="object-cover"
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-brand-ink/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-4">
                   <p className="text-brand-gold text-xs uppercase tracking-widest font-semibold">
                     {item.category}
@@ -83,7 +63,34 @@ export default function GalleryPage() {
                 </div>
               </div>
             ))}
+
+            {uploaded.map((item) => (
+              <div
+                key={item.id}
+                className="group relative aspect-square rounded-2xl overflow-hidden bg-white border border-brand-gold/30 shadow-sm card-hover"
+              >
+                <Image
+                  src={item.url}
+                  alt={item.caption}
+                  fill
+                  sizes="(max-width: 768px) 50vw, 25vw"
+                  className="object-cover"
+                  unoptimized
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-brand-ink/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-4">
+                  <p className="text-white text-sm font-bold">
+                    {item.caption}
+                  </p>
+                </div>
+              </div>
+            ))}
           </div>
+
+          {uploaded.length === 0 && (
+            <p className="text-center text-brand-ink/40 text-sm italic mt-10">
+              More photos will appear here as they are added by the club.
+            </p>
+          )}
         </div>
       </section>
     </>

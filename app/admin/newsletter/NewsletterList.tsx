@@ -1,12 +1,17 @@
 "use client";
 
-import { FileText, Image as ImageIcon, Copy, Check, ExternalLink } from "lucide-react";
+import {
+  FileText, Image as ImageIcon, Copy, Check, ExternalLink, Trash2, Loader2,
+} from "lucide-react";
 import { InstagramIcon, FacebookIcon } from "@/components/SocialIcons";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import type { NewsletterItem } from "@/lib/blob";
 
 export default function NewsletterList({ items }: { items: NewsletterItem[] }) {
+  const router = useRouter();
   const [copied, setCopied] = useState<string | null>(null);
+  const [deletingUrl, setDeletingUrl] = useState<string | null>(null);
 
   const copyUrl = async (url: string) => {
     try {
@@ -15,6 +20,30 @@ export default function NewsletterList({ items }: { items: NewsletterItem[] }) {
       setTimeout(() => setCopied(null), 2000);
     } catch {
       window.prompt("Copy this URL:", url);
+    }
+  };
+
+  const handleDelete = async (item: NewsletterItem) => {
+    if (
+      !confirm(
+        `Delete "${item.filename}"?\n\nThis permanently removes the file from the newsletter archive. This action cannot be undone.`
+      )
+    ) {
+      return;
+    }
+    setDeletingUrl(item.url);
+    try {
+      const res = await fetch(
+        `/api/admin/newsletter?url=${encodeURIComponent(item.url)}`,
+        { method: "DELETE" }
+      );
+      const json = await res.json();
+      if (!res.ok) throw new Error(json.error || "Delete failed");
+      router.refresh();
+    } catch (err) {
+      alert(err instanceof Error ? err.message : "Delete failed");
+    } finally {
+      setDeletingUrl(null);
     }
   };
 
@@ -110,6 +139,23 @@ export default function NewsletterList({ items }: { items: NewsletterItem[] }) {
                 >
                   <FacebookIcon className="w-3 h-3" /> Share to Facebook
                 </a>
+                <button
+                  type="button"
+                  onClick={() => handleDelete(item)}
+                  disabled={deletingUrl === item.url}
+                  className="inline-flex items-center gap-1.5 bg-white border border-red-300 hover:bg-red-50 text-red-600 text-xs font-semibold px-3 py-1.5 rounded-lg transition-colors disabled:opacity-60 ml-auto"
+                  title="Permanently delete this newsletter"
+                >
+                  {deletingUrl === item.url ? (
+                    <>
+                      <Loader2 className="w-3 h-3 animate-spin" /> Deleting...
+                    </>
+                  ) : (
+                    <>
+                      <Trash2 className="w-3 h-3" /> Delete
+                    </>
+                  )}
+                </button>
               </div>
             </div>
           </div>

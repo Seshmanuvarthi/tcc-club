@@ -1,9 +1,18 @@
 import Link from "next/link";
 import Image from "next/image";
+import ImageCarousel from "@/components/ImageCarousel";
 import {
   Utensils, Users, Calendar, Trophy, ArrowRight,
   Building2, Sparkles, Award, MapPin, Phone,
 } from "lucide-react";
+
+const storySlides = [
+  { src: "/images/ameneties.png", alt: "TCC World Class Amenities" },
+  { src: "/images/banquets.png", alt: "TCC Banquets" },
+  { src: "/images/gymandyoga.png", alt: "TCC Gym and Yoga Studio" },
+  { src: "/images/restaurantandbar.png", alt: "TCC Restaurant and Bar" },
+  { src: "/images/swimmingpool.png", alt: "TCC Swimming Pool" },
+];
 
 const stats = [
   { value: "5000+", label: "Active Members" },
@@ -13,10 +22,10 @@ const stats = [
 ];
 
 const facilityPreviews = [
-  { icon: Utensils,   label: "Restaurant & Bar", href: "/facilities#dining" },
-  { icon: Building2,  label: "Banquets",         href: "/facilities#banquets" },
-  { icon: Trophy,     label: "Sports & Games",   href: "/facilities#sports" },
-  { icon: Sparkles,   label: "Swimming Pool",    href: "/facilities#swimming" },
+  { icon: Utensils, label: "Restaurant & Bar", href: "/facilities#dining" },
+  { icon: Building2, label: "Banquets", href: "/facilities#banquets" },
+  { icon: Trophy, label: "Sports & Games", href: "/facilities#sports" },
+  { icon: Sparkles, label: "Swimming Pool", href: "/facilities#swimming" },
 ];
 
 const highlights = [
@@ -146,12 +155,10 @@ export default function Home() {
 
             <div className="relative">
               <div className="bg-white rounded-2xl p-2 shadow-xl border border-brand-gold/30">
-                <Image
-                  src="/images/ameneties.png"
-                  alt="TCC Amenities"
-                  width={800}
-                  height={800}
-                  className="rounded-xl w-full h-auto"
+                <ImageCarousel
+                  slides={storySlides}
+                  intervalMs={2500}
+                  className="rounded-xl"
                 />
               </div>
             </div>
