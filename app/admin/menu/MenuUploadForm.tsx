@@ -17,7 +17,8 @@ export default function MenuUploadForm() {
     setError(null);
     setSuccess(false);
 
-    const form = new FormData(e.currentTarget);
+    const formEl = e.currentTarget;
+    const form = new FormData(formEl);
     try {
       const res = await fetch("/api/admin/menu", {
         method: "POST",
@@ -27,7 +28,7 @@ export default function MenuUploadForm() {
       if (!res.ok) throw new Error(json.error || "Upload failed");
       setSuccess(true);
       setPreview(null);
-      (e.currentTarget as HTMLFormElement).reset();
+      formEl.reset();
       router.refresh();
     } catch (err) {
       setError(err instanceof Error ? err.message : "Upload failed");

@@ -122,7 +122,9 @@ export default function Footer() {
                 <span className="text-sm text-brand-cream/60">
                   Telangana Contractors Cultural Club,
                   <br />
-                  Hyderabad, Telangana — [PIN]
+                  Central Park, Serilingampalle (M),
+                  <br />
+                  Telangana 500084
                 </span>
               </li>
               <li className="flex gap-3">

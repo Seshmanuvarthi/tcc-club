@@ -283,9 +283,9 @@ export default function Home() {
                 <p className="text-brand-ink/70 text-sm leading-relaxed ml-8">
                   Telangana Contractors Cultural Club,
                   <br />
-                  Hyderabad, Telangana
+                  Central Park, Serilingampalle (M),
                   <br />
-                  [Full address to be confirmed]
+                  Telangana 500084
                 </p>
               </div>
               <div className="bg-white rounded-2xl p-6 border border-brand-gold/20 shadow-sm">
@@ -305,7 +305,7 @@ export default function Home() {
               <div className="rounded-2xl overflow-hidden shadow-lg border border-brand-gold/20 h-full min-h-[360px]">
                 <iframe
                   title="TCC Location"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.7259!2d78.4866713!3d17.385044!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTfCsDIzJzA2LjEiTiA3OMKwMjknMTIuMCJF!5e0!3m2!1sen!2sin!4v1700000000000"
+                  src="https://maps.google.com/maps?q=17.48142868331059,78.34402073747616&z=17&output=embed"
                   width="100%"
                   height="100%"
                   style={{ border: 0, minHeight: 360 }}

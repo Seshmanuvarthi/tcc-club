@@ -107,7 +107,9 @@ export default function ContactPage() {
             </div>
             <h3 className="font-bold text-brand-ink mb-2">Visit Us</h3>
             <p className="text-brand-ink/70 text-sm">
-              Hyderabad, Telangana
+              Central Park, Serilingampalle (M),
+              <br />
+              Telangana 500084
             </p>
           </div>
         </div>
@@ -201,7 +203,7 @@ export default function ContactPage() {
           <div className="rounded-2xl overflow-hidden shadow-lg border border-brand-gold/20 h-[420px]">
             <iframe
               title="TCC Location"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.7259!2d78.4866713!3d17.385044!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTfCsDIzJzA2LjEiTiA3OMKwMjknMTIuMCJF!5e0!3m2!1sen!2sin!4v1700000000000"
+              src="https://maps.google.com/maps?q=17.48142868331059,78.34402073747616&z=17&output=embed"
               width="100%"
               height="100%"
               style={{ border: 0 }}
