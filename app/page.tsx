@@ -6,8 +6,8 @@ import {
 } from "lucide-react";
 
 const stats = [
-  { value: "1000+", label: "Active Members" },
-  { value: "25+", label: "Years of Legacy" },
+  { value: "5000+", label: "Active Members" },
+  { value: "3", label: "Years of Legacy" },
   { value: "10+", label: "Facilities" },
   { value: "365", label: "Days of Service" },
 ];
