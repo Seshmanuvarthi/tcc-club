@@ -1,0 +1,142 @@
+import Link from "next/link";
+import Image from "next/image";
+import { ArrowRight, Award, Heart, Target, Users } from "lucide-react";
+
+const values = [
+  {
+    icon: Heart,
+    title: "Community First",
+    desc: "We exist for our members. Every decision is anchored in serving the contractors community.",
+  },
+  {
+    icon: Award,
+    title: "Excellence",
+    desc: "From cuisine to service to facilities, we hold ourselves to the highest standards.",
+  },
+  {
+    icon: Target,
+    title: "Tradition with Vision",
+    desc: "Rooted in Telangana culture, we continue to evolve to meet the needs of modern members.",
+  },
+  {
+    icon: Users,
+    title: "Inclusive Spirit",
+    desc: "Members, families, and guests all find a warm welcome at TCC.",
+  },
+];
+
+export default function AboutPage() {
+  return (
+    <>
+      {/* Hero */}
+      <section className="relative bg-brand-ink py-24 sm:py-28 overflow-hidden">
+        <div className="absolute inset-0 hero-pattern opacity-50" />
+        <div className="absolute top-0 right-0 w-96 h-96 bg-brand-red rounded-full blur-3xl opacity-15" />
+        <div className="relative max-w-5xl mx-auto px-4 sm:px-6 text-center">
+          <p className="text-brand-gold font-semibold tracking-widest uppercase text-sm mb-4">
+            About Us
+          </p>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
+            The <span className="gold-gradient-text">TCC</span> Story
+          </h1>
+          <p className="text-brand-cream/80 text-lg sm:text-xl max-w-3xl mx-auto leading-relaxed">
+            A members&apos; club built on heritage, hospitality, and the spirit
+            of the Telangana contractors community.
+          </p>
+        </div>
+      </section>
+
+      {/* History */}
+      <section className="bg-brand-cream py-20 sm:py-28">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="grid lg:grid-cols-2 gap-14 items-center">
+            <div>
+              <p className="text-brand-red font-semibold uppercase tracking-widest text-sm mb-3">
+                Our Heritage
+              </p>
+              <h2 className="text-3xl sm:text-4xl font-bold text-brand-ink mb-6 leading-tight">
+                A Club for the{" "}
+                <span className="red-gradient-text">Community</span>
+              </h2>
+              <p className="text-brand-ink/75 text-lg mb-5 leading-relaxed">
+                The Telangana Contractors Cultural Club was founded as a
+                gathering place for the contractors community of Telangana — a
+                space where members could come together socially, culturally,
+                and professionally.
+              </p>
+              <p className="text-brand-ink/65 mb-5 leading-relaxed">
+                What began as a vision has grown into one of Hyderabad&apos;s
+                premier members&apos; clubs, with facilities spanning fine
+                dining, banquets, swimming, sports, and cultural events for
+                members and their families.
+              </p>
+              <p className="text-sm text-brand-ink/50 italic">
+                [Full history text to be provided by the club.]
+              </p>
+            </div>
+            <div className="relative">
+              <div className="absolute inset-0 bg-brand-gold rounded-full blur-3xl opacity-15" />
+              <Image
+                src="/images/logo.png"
+                alt="TCC Crest"
+                width={500}
+                height={500}
+                className="relative mx-auto drop-shadow-xl"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Values */}
+      <section className="bg-white py-20 sm:py-28 border-y border-brand-gold/20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="text-center mb-14">
+            <p className="text-brand-red font-semibold uppercase tracking-widest text-sm mb-3">
+              What Drives Us
+            </p>
+            <h2 className="text-3xl sm:text-4xl font-bold text-brand-ink mb-3">
+              Our Values
+            </h2>
+            <div className="divider-gold w-32 mx-auto" />
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {values.map(({ icon: Icon, title, desc }) => (
+              <div
+                key={title}
+                className="bg-brand-cream rounded-2xl p-7 border border-brand-gold/20 shadow-sm card-hover text-center"
+              >
+                <div className="w-14 h-14 bg-brand-red/10 rounded-2xl flex items-center justify-center mx-auto mb-5">
+                  <Icon className="w-7 h-7 text-brand-red" />
+                </div>
+                <h3 className="text-brand-ink font-bold mb-2">{title}</h3>
+                <p className="text-brand-ink/60 text-sm leading-relaxed">
+                  {desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Directors CTA */}
+      <section className="bg-brand-ink py-20">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-5">
+            Meet Our Board of Directors
+          </h2>
+          <p className="text-brand-cream/70 text-lg mb-8 max-w-2xl mx-auto">
+            The leadership team behind TCC — guiding the club&apos;s vision and
+            ensuring excellence for our members.
+          </p>
+          <Link
+            href="/about/directors"
+            className="inline-flex items-center gap-2 bg-brand-red hover:bg-brand-red-dark text-white font-semibold px-7 py-3.5 rounded-xl transition-colors shadow-lg"
+          >
+            View Directors <ArrowRight className="w-4 h-4" />
+          </Link>
+        </div>
+      </section>
+    </>
+  );
+}
