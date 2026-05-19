@@ -1,9 +1,22 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import {
   Utensils, Building2, Waves, Dumbbell, Trophy,
   Bed, Music, Wine, Brain, Theater, ArrowRight, CheckCircle2,
 } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "Facilities",
+  description:
+    "Explore TCC's world-class facilities: luxury banquet halls, restaurant & bar, swimming pool, gym & yoga studio, amphitheatre, 30+ guest suites, indoor & outdoor games at Hyderabad's first vertical members' club.",
+  openGraph: {
+    title: "TCC Facilities | Hyderabad's First Vertical Club",
+    description:
+      "Seven floors of banquets, dining, swimming, sports, wellness, and guest suites — all designed for the comfort and pride of TCC members.",
+    images: ["/images/ameneties.webp"],
+  },
+};
 
 type Facility = {
   id: string;
@@ -29,7 +42,7 @@ const facilities: Facility[] = [
       "In-house catering with multi-cuisine menus",
       "Audio-visual and stage support",
     ],
-    image: "/images/banquets.png",
+    image: "/images/banquets.webp",
   },
   {
     id: "dining",
@@ -43,7 +56,7 @@ const facilities: Facility[] = [
       "Live counters for select menus",
       "Private dining options on request",
     ],
-    image: "/images/restaurantandbar.png",
+    image: "/images/restaurantandbar.webp",
     reverse: true,
   },
   {
@@ -58,7 +71,7 @@ const facilities: Facility[] = [
       "Trained lifeguards on duty",
       "Poolside seating and refreshments",
     ],
-    image: "/images/swimmingpool.png",
+    image: "/images/swimmingpool.webp",
   },
   {
     id: "gym",
@@ -72,7 +85,7 @@ const facilities: Facility[] = [
       "Group classes (schedule varies)",
       "Personal training on request",
     ],
-    image: "/images/gymandyoga.png",
+    image: "/images/gymandyoga.webp",
     reverse: true,
   },
 ];
@@ -139,7 +152,7 @@ export default function FacilitiesPage() {
         <div className="max-w-3xl mx-auto px-4 sm:px-6">
           <div className="bg-white rounded-2xl p-1.5 shadow-lg border border-brand-gold/30">
             <Image
-              src="/images/ameneties.png"
+              src="/images/ameneties.webp"
               alt="TCC World Class Amenities"
               width={800}
               height={500}

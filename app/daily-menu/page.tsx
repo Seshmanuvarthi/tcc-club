@@ -1,9 +1,21 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { getCurrentMenu } from "@/lib/blob";
 import { Calendar, UtensilsCrossed, ArrowRight } from "lucide-react";
 
 export const dynamic = "force-dynamic";
+
+export const metadata: Metadata = {
+  title: "Daily Menu",
+  description:
+    "Today's specials at the TCC restaurant — fresh, delicious, and always changing. Check the daily menu at Telangana Contractors Cultural Club.",
+  openGraph: {
+    title: "Today's Daily Menu | TCC",
+    description:
+      "What's cooking at TCC today — view our daily menu and book a table.",
+  },
+};
 
 export default async function DailyMenuPage() {
   const menu = await getCurrentMenu();

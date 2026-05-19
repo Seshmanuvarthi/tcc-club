@@ -1,10 +1,22 @@
-import Image from "next/image";
+import type { Metadata } from "next";
 import Link from "next/link";
 import { listNewsletters } from "@/lib/blob";
-import { FileText, Image as ImageIcon, ExternalLink, Newspaper } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 import { InstagramIcon } from "@/components/SocialIcons";
+import NewsletterList from "./NewsletterList";
 
 export const dynamic = "force-dynamic";
+
+export const metadata: Metadata = {
+  title: "Newsletter",
+  description:
+    "Daily news, announcements, and event updates from the Telangana Contractors Cultural Club. Browse the latest newsletters and posts.",
+  openGraph: {
+    title: "TCC Newsletter | News & Updates",
+    description:
+      "Stay up to date with the latest news, announcements, and events from TCC.",
+  },
+};
 
 export default async function NewsletterPage() {
   const items = await listNewsletters();
@@ -40,101 +52,10 @@ export default async function NewsletterPage() {
         </div>
       </section>
 
-      {/* List */}
+      {/* List with search + pagination */}
       <section className="bg-brand-cream py-6 sm:py-8">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          {items.length === 0 ? (
-            <div className="bg-white rounded-3xl p-12 sm:p-16 border border-brand-gold/30 shadow-xl text-center max-w-2xl mx-auto">
-              <div className="w-20 h-20 bg-brand-gold/15 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                <Newspaper className="w-10 h-10 text-brand-gold-dark" />
-              </div>
-              <h2 className="text-2xl font-bold text-brand-ink mb-3">
-                No Newsletters Yet
-              </h2>
-              <p className="text-brand-ink/70 mb-2 max-w-md mx-auto">
-                The newsletter archive is empty at the moment. Once the club
-                posts an update, it will appear here.
-              </p>
-            </div>
-          ) : (
-            <>
-              <div className="mb-8">
-                <p className="text-sm text-brand-ink/60">
-                  Showing <strong>{items.length}</strong> post
-                  {items.length === 1 ? "" : "s"}, newest first.
-                </p>
-              </div>
-              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                {items.map((item) => (
-                  <article
-                    key={item.url}
-                    className="bg-white rounded-2xl overflow-hidden border border-brand-gold/20 shadow-sm card-hover flex flex-col"
-                  >
-                    <div className="aspect-[4/3] bg-brand-cream relative">
-                      {item.isPdf ? (
-                        <div className="absolute inset-0 flex flex-col items-center justify-center">
-                          <div className="w-20 h-20 bg-brand-red rounded-2xl flex items-center justify-center mb-3">
-                            <FileText className="w-10 h-10 text-white" />
-                          </div>
-                          <p className="text-brand-ink/60 text-sm font-semibold uppercase tracking-widest">
-                            PDF Document
-                          </p>
-                        </div>
-                      ) : (
-                        <Image
-                          src={item.url}
-                          alt={item.filename}
-                          fill
-                          sizes="(max-width: 768px) 100vw, 33vw"
-                          className="object-cover"
-                          unoptimized
-                        />
-                      )}
-                    </div>
-                    <div className="p-5 flex-1 flex flex-col">
-                      <div className="flex items-center gap-2 mb-2 text-xs text-brand-gold-dark font-semibold uppercase tracking-widest">
-                        {item.isPdf ? (
-                          <FileText className="w-3.5 h-3.5" />
-                        ) : (
-                          <ImageIcon className="w-3.5 h-3.5" />
-                        )}
-                        {item.isPdf ? "PDF" : "Image"}
-                      </div>
-                      <p className="text-brand-ink font-semibold text-sm mb-2 truncate" title={item.filename}>
-                        {item.filename}
-                      </p>
-                      <p className="text-brand-ink/50 text-xs mb-4">
-                        Posted{" "}
-                        {new Date(item.uploadedAt).toLocaleDateString("en-IN", {
-                          day: "numeric",
-                          month: "long",
-                          year: "numeric",
-                          timeZone: "Asia/Kolkata",
-                        })}
-                      </p>
-                      <div className="mt-auto flex gap-2">
-                        <a
-                          href={item.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex-1 text-center bg-brand-red hover:bg-brand-red-dark text-white text-sm font-semibold px-3 py-2 rounded-lg transition-colors"
-                        >
-                          View
-                        </a>
-                        <a
-                          href={item.url}
-                          download
-                          className="flex-1 text-center border border-brand-red text-brand-red hover:bg-brand-red hover:text-white text-sm font-semibold px-3 py-2 rounded-lg transition-colors"
-                        >
-                          Download
-                        </a>
-                      </div>
-                    </div>
-                  </article>
-                ))}
-              </div>
-            </>
-          )}
+          <NewsletterList items={items} />
         </div>
       </section>
 

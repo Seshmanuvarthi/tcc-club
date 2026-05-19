@@ -1,6 +1,18 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, Award, Heart, Target, Users } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "About Us",
+  description:
+    "Founded in 2016 by the contractors community of Telangana, TCC is Hyderabad's first vertical members' club at Central Park, Serilingampalle. Learn our story and values.",
+  openGraph: {
+    title: "About TCC | Heritage & Story",
+    description:
+      "A members' club built on heritage, hospitality, and the spirit of the Telangana contractors community since 2016.",
+  },
+};
 
 const values = [
   {

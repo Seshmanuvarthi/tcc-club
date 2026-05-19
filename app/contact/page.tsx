@@ -1,4 +1,16 @@
+import type { Metadata } from "next";
 import { Phone, Mail, MapPin, Briefcase, Calculator, Building2, Utensils, User, Users } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "Contact Us",
+  description:
+    "Get in touch with the Telangana Contractors Cultural Club at Central Park, Serilingampalle, Hyderabad. Reach our GM, accounts, HR, restaurant, and room booking desks directly.",
+  openGraph: {
+    title: "Contact TCC",
+    description:
+      "Speak to the right person at TCC — booking, enquiries, memberships, accounts, and dining contacts.",
+  },
+};
 
 type Staff = {
   icon: React.ComponentType<{ className?: string }>;

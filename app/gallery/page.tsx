@@ -1,7 +1,20 @@
+import type { Metadata } from "next";
 import { listGallery } from "@/lib/blob";
 import GalleryGrid from "./GalleryGrid";
 
 export const dynamic = "force-dynamic";
+
+export const metadata: Metadata = {
+  title: "Gallery",
+  description:
+    "A glimpse into life at TCC — banquets, dining, swimming, sports, events, and cultural celebrations from the Telangana Contractors Cultural Club.",
+  openGraph: {
+    title: "TCC Gallery | Moments at the Club",
+    description:
+      "Photos from events, facilities, and celebrations at Telangana Contractors Cultural Club.",
+    images: ["/images/ameneties.webp"],
+  },
+};
 
 type LocalItem = {
   src: string;
@@ -10,12 +23,12 @@ type LocalItem = {
 };
 
 const localItems: LocalItem[] = [
-  { src: "/images/banquets.png",         alt: "Banquet Hall",         category: "Banquets" },
-  { src: "/images/restaurantandbar.png", alt: "Restaurant and Bar",   category: "Dining" },
-  { src: "/images/swimmingpool.png",     alt: "Swimming Pool",        category: "Swimming" },
-  { src: "/images/gymandyoga.png",       alt: "Gym and Yoga",         category: "Fitness" },
-  { src: "/images/ameneties.png",        alt: "World Class Amenities", category: "Amenities" },
-  { src: "/images/membership.png",       alt: "Memberships Open",     category: "Membership" },
+  { src: "/images/banquets.webp",         alt: "Banquet Hall",         category: "Banquets" },
+  { src: "/images/restaurantandbar.webp", alt: "Restaurant and Bar",   category: "Dining" },
+  { src: "/images/swimmingpool.webp",     alt: "Swimming Pool",        category: "Swimming" },
+  { src: "/images/gymandyoga.webp",       alt: "Gym and Yoga",         category: "Fitness" },
+  { src: "/images/ameneties.webp",        alt: "World Class Amenities", category: "Amenities" },
+  { src: "/images/membership.webp",       alt: "Memberships Open",     category: "Membership" },
 ];
 
 export default async function GalleryPage() {

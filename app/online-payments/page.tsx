@@ -1,5 +1,17 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { CreditCard, ExternalLink, Shield, Clock, HelpCircle } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "Online Payments",
+  description:
+    "Pay membership dues, event bills, and other charges securely through the official TCC members' payment portal at mem.tccclub.net.",
+  openGraph: {
+    title: "Online Payments | TCC Members' Portal",
+    description:
+      "Pay dues and bills securely through the official TCC members' portal.",
+  },
+};
 
 export default function OnlinePaymentsPage() {
   return (

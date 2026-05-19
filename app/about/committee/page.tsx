@@ -1,3 +1,16 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Managing Committee",
+  description:
+    "Meet the elected managing committee of the Telangana Contractors Cultural Club for 2024 – 2027 — President, Secretary, Treasurer, and Directors leading TCC.",
+  openGraph: {
+    title: "Managing Committee | TCC",
+    description:
+      "The elected leadership behind the Telangana Contractors Cultural Club, guiding the club's vision and members' experience.",
+  },
+};
+
 const members = [
   { sno: 1,  designation: "President",       name: "Mr. Bollineni Seenaiah" },
   { sno: 2,  designation: "Vice President",  name: "Mr. Sreepathi Narsimha Reddy" },

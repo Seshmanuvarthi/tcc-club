@@ -1,24 +1,25 @@
 import Link from "next/link";
 import Image from "next/image";
 import ImageCarousel from "@/components/ImageCarousel";
+import CountUp from "@/components/CountUp";
 import {
   Utensils, Users, Calendar, Trophy, ArrowRight,
   Building2, Sparkles, Award, MapPin, Phone,
 } from "lucide-react";
 
 const storySlides = [
-  { src: "/images/ameneties.png", alt: "TCC World Class Amenities" },
-  { src: "/images/banquets.png", alt: "TCC Banquets" },
-  { src: "/images/gymandyoga.png", alt: "TCC Gym and Yoga Studio" },
-  { src: "/images/restaurantandbar.png", alt: "TCC Restaurant and Bar" },
-  { src: "/images/swimmingpool.png", alt: "TCC Swimming Pool" },
+  { src: "/images/ameneties.webp", alt: "TCC World Class Amenities" },
+  { src: "/images/banquets.webp", alt: "TCC Banquets" },
+  { src: "/images/gymandyoga.webp", alt: "TCC Gym and Yoga Studio" },
+  { src: "/images/restaurantandbar.webp", alt: "TCC Restaurant and Bar" },
+  { src: "/images/swimmingpool.webp", alt: "TCC Swimming Pool" },
 ];
 
 const stats = [
-  { value: "5000+", label: "Active Members" },
-  { value: "3", label: "Years of Legacy" },
-  { value: "10+", label: "Facilities" },
-  { value: "365", label: "Days of Service" },
+  { end: 5000, suffix: "+", label: "Active Members" },
+  { end: 3,    suffix: "",  label: "Years of Legacy" },
+  { end: 10,   suffix: "+", label: "Facilities" },
+  { end: 365,  suffix: "",  label: "Days of Service" },
 ];
 
 const facilityPreviews = [
@@ -102,7 +103,7 @@ export default function Home() {
               {stats.map((s) => (
                 <div key={s.label} className="text-left">
                   <p className="text-xl sm:text-2xl font-bold text-brand-gold mb-0.5">
-                    {s.value}
+                    <CountUp end={s.end} suffix={s.suffix} />
                   </p>
                   <p className="text-brand-cream/60 text-xs leading-snug">
                     {s.label}
