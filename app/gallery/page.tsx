@@ -7,9 +7,9 @@ export const dynamic = "force-dynamic";
 export const metadata: Metadata = {
   title: "Gallery",
   description:
-    "A glimpse into life at TCC — banquets, dining, swimming, sports, events, and cultural celebrations from the Telangana Contractors Cultural Club.",
+    "A glimpse into life at TCCC — banquets, dining, swimming, sports, events, and cultural celebrations from the Telangana Contractors Cultural Club.",
   openGraph: {
-    title: "TCC Gallery | Moments at the Club",
+    title: "TCCC Gallery | Moments at the Club",
     description:
       "Photos from events, facilities, and celebrations at Telangana Contractors Cultural Club.",
     images: ["/images/ameneties.webp"],
@@ -42,7 +42,7 @@ export default async function GalleryPage() {
         <div className="absolute bottom-0 left-1/4 w-80 h-80 bg-brand-gold rounded-full blur-3xl opacity-10" />
         <div className="relative max-w-5xl mx-auto px-4 sm:px-6 text-center">
           <p className="text-brand-gold font-semibold tracking-widest uppercase text-sm mb-4">
-            Moments at TCC
+            Moments at TCCC
           </p>
           <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4 leading-tight">
             Our <span className="gold-gradient-text">Gallery</span>

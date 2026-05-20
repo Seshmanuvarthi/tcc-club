@@ -29,7 +29,7 @@ export default function Footer() {
             <div className="flex items-center gap-3 mb-4">
               <Image
                 src="/images/logo.png"
-                alt="TCC Logo"
+                alt="TCCC Logo"
                 width={52}
                 height={52}
                 className="rounded-full"
@@ -45,8 +45,8 @@ export default function Footer() {
             </div>
             <p className="text-brand-cream/60 text-sm leading-relaxed mb-6">
               A premier members&apos; club bringing together the Telangana
-              contractors community through hospitality, culture, sports, and
-              fine dining.
+              contractors, builders and others through hospitality, culture,
+              sports, and fine dining.
             </p>
             <div className="flex gap-3">
               <a

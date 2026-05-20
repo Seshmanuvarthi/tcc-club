@@ -8,18 +8,18 @@ import {
 } from "lucide-react";
 
 const storySlides = [
-  { src: "/images/ameneties.webp", alt: "TCC World Class Amenities" },
-  { src: "/images/banquets.webp", alt: "TCC Banquets" },
-  { src: "/images/gymandyoga.webp", alt: "TCC Gym and Yoga Studio" },
-  { src: "/images/restaurantandbar.webp", alt: "TCC Restaurant and Bar" },
-  { src: "/images/swimmingpool.webp", alt: "TCC Swimming Pool" },
+  { src: "/images/ameneties.webp", alt: "TCCC World Class Amenities" },
+  { src: "/images/banquets.webp", alt: "TCCC Banquets" },
+  { src: "/images/gymandyoga.webp", alt: "TCCC Gym and Yoga Studio" },
+  { src: "/images/restaurantandbar.webp", alt: "TCCC Restaurant and Bar" },
+  { src: "/images/swimmingpool.webp", alt: "TCCC Swimming Pool" },
 ];
 
 const stats = [
   { end: 5000, suffix: "+", label: "Active Members" },
-  { end: 3,    suffix: "",  label: "Years of Legacy" },
-  { end: 10,   suffix: "+", label: "Facilities" },
-  { end: 365,  suffix: "",  label: "Days of Service" },
+  { end: 2, suffix: "", label: "Years of Legacy" },
+  { end: 10, suffix: "+", label: "Facilities" },
+  { end: 365, suffix: "", label: "Days of Service" },
 ];
 
 const facilityPreviews = [
@@ -33,7 +33,7 @@ const highlights = [
   {
     icon: Award,
     title: "Heritage & Prestige",
-    desc: "A distinguished gathering place for the Telangana contractors community since inception.",
+    desc: "A distinguished gathering place for the Telangana contractors, builders and others since inception.",
   },
   {
     icon: Users,
@@ -55,7 +55,7 @@ export default function Home() {
         {/* Banner background image */}
         <Image
           src="/images/banner.jpg"
-          alt="TCC Banner"
+          alt="TCCC Banner"
           fill
           sizes="100vw"
           className="object-cover object-center"
@@ -81,8 +81,9 @@ export default function Home() {
             </h1>
             <p className="text-brand-cream/80 text-lg sm:text-xl max-w-2xl mb-7 leading-relaxed">
               A premier members&apos; club celebrating the legacy of the
-              Telangana contractors community, offering world-class banquets,
-              dining, sports, swimming, and cultural experiences under one roof.
+              Telangana contractors, builders and others. Offering best in
+              class banquets, dining, sports, swimming, and cultural
+              experiences under one roof.
             </p>
             <div className="flex flex-wrap gap-3">
               <Link
@@ -118,7 +119,7 @@ export default function Home() {
               <div className="absolute inset-0 bg-brand-gold rounded-full blur-3xl opacity-20" />
               <Image
                 src="/images/logo.png"
-                alt="TCC Logo"
+                alt="TCCC Logo"
                 width={340}
                 height={340}
                 className="relative drop-shadow-2xl"
@@ -140,11 +141,11 @@ export default function Home() {
               <h2 className="text-2xl sm:text-3xl font-bold text-brand-ink mb-3 leading-tight">
                 A Legacy of the{" "}
                 <span className="red-gradient-text">
-                  Telangana Contractors Community
+                  Telangana Contractors Cultural Club
                 </span>
               </h2>
               <p className="text-brand-ink/70 text-base mb-4 leading-relaxed">
-                Founded in 2016 by contractors from across Telangana, TCC was
+                Founded in 2016 by contractors from across Telangana, TCCC was
                 envisioned as an exclusive members&apos; destination for
                 fellowship, fine dining, sports, and cultural gatherings. Today
                 it stands at Central Park, Serilingampalle, Hyderabad&apos;s
@@ -216,10 +217,10 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-6">
             <p className="text-brand-gold font-semibold uppercase tracking-widest text-sm mb-2">
-              The TCC Difference
+              The TCCC Difference
             </p>
             <h2 className="text-2xl sm:text-3xl font-bold text-white">
-              Why Members Choose TCC
+              Why Members Choose TCCC
             </h2>
           </div>
           <div className="grid sm:grid-cols-3 gap-4">
@@ -252,7 +253,7 @@ export default function Home() {
           </h2>
           <p className="text-white/85 text-sm mb-5 max-w-2xl mx-auto">
             Join the Telangana Contractors Cultural Club and experience a
-            community built on tradition, hospitality, and excellence.
+            club built on tradition, hospitality, and excellence.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link
@@ -314,7 +315,7 @@ export default function Home() {
             <div className="lg:col-span-2">
               <div className="rounded-2xl overflow-hidden shadow-lg border border-brand-gold/20 h-full min-h-70">
                 <iframe
-                  title="TCC Location"
+                  title="TCCC Location"
                   src="https://maps.google.com/maps?q=17.48142868331059,78.34402073747616&z=17&output=embed"
                   width="100%"
                   height="100%"

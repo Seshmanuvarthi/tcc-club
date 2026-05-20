@@ -6,19 +6,19 @@ import { ArrowRight, Award, Heart, Target, Users } from "lucide-react";
 export const metadata: Metadata = {
   title: "About Us",
   description:
-    "Founded in 2016 by the contractors community of Telangana, TCC is Hyderabad's first vertical members' club at Central Park, Serilingampalle. Learn our story and values.",
+    "Founded in 2016 by the contractors, builders and others of Telangana, TCCC is Hyderabad's first vertical members' club at Central Park, Serilingampalle. Learn our story and values.",
   openGraph: {
-    title: "About TCC | Heritage & Story",
+    title: "About TCCC | Heritage & Story",
     description:
-      "A members' club built on heritage, hospitality, and the spirit of the Telangana contractors community since 2016.",
+      "A members' club built on heritage, hospitality, and the spirit of the Telangana contractors, builders and others since 2016.",
   },
 };
 
 const values = [
   {
     icon: Heart,
-    title: "Community First",
-    desc: "We exist for our members. Every decision is anchored in serving the contractors community.",
+    title: "Members First",
+    desc: "We exist for our members. Every decision is anchored in serving our members and their families.",
   },
   {
     icon: Award,
@@ -33,7 +33,7 @@ const values = [
   {
     icon: Users,
     title: "Inclusive Spirit",
-    desc: "Members, families, and guests all find a warm welcome at TCC.",
+    desc: "Members, families, and guests all find a warm welcome at TCCC.",
   },
 ];
 
@@ -50,11 +50,11 @@ export default function AboutPage() {
             About Us
           </p>
           <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4 leading-tight">
-            The <span className="gold-gradient-text">TCC</span> Story
+            The <span className="gold-gradient-text">TCCC</span> Story
           </h1>
           <p className="text-brand-cream/80 text-lg max-w-3xl mx-auto leading-relaxed">
             A members&apos; club built on heritage, hospitality, and the spirit
-            of the Telangana contractors community.
+            of the Telangana contractors, builders and others.
           </p>
         </div>
       </section>
@@ -68,13 +68,13 @@ export default function AboutPage() {
                 Our Heritage
               </p>
               <h2 className="text-3xl sm:text-4xl font-bold text-brand-ink mb-6 leading-tight">
-                A Club for the{" "}
-                <span className="red-gradient-text">Community</span>
+                A Club for{" "}
+                <span className="red-gradient-text">Builders and Others</span>
               </h2>
               <p className="text-brand-ink/75 text-lg mb-5 leading-relaxed">
                 The Telangana Contractors Cultural Club was incorporated as a
                 registered society on <strong>17 August 2016</strong>, founded
-                by a community of contractors from across Telangana who
+                by contractors, builders and others from across Telangana who
                 envisioned an exclusive recreational and cultural destination
                 of their own, a place where members and their families could
                 come together for fellowship, fine dining, cultural
@@ -90,15 +90,15 @@ export default function AboutPage() {
               </p>
               <p className="text-brand-ink/65 leading-relaxed">
                 Today the club stands as a working tribute to the spirit of
-                the contractors community, a space built by members, for
-                members and their families.
+                the contractors, builders and others, a space built by
+                members, for members and their families.
               </p>
             </div>
             <div className="relative">
               <div className="absolute inset-0 bg-brand-gold rounded-full blur-3xl opacity-15" />
               <Image
                 src="/images/logo.png"
-                alt="TCC Crest"
+                alt="TCCC Crest"
                 width={500}
                 height={500}
                 className="relative mx-auto drop-shadow-xl"
@@ -146,7 +146,7 @@ export default function AboutPage() {
             Meet Our Managing Committee
           </h2>
           <p className="text-brand-cream/70 text-lg mb-5 max-w-2xl mx-auto">
-            The elected committee behind TCC, guiding the club&apos;s vision and
+            The elected committee behind TCCC, guiding the club&apos;s vision and
             ensuring excellence for our members.
           </p>
           <Link

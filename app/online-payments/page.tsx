@@ -5,11 +5,11 @@ import { CreditCard, ExternalLink, Shield, Clock, HelpCircle } from "lucide-reac
 export const metadata: Metadata = {
   title: "Online Payments",
   description:
-    "Pay membership dues, event bills, and other charges securely through the official TCC members' payment portal at mem.tccclub.net.",
+    "Pay membership dues, event bills, and other charges securely through the official TCCC members' payment portal at mem.tccclub.net.",
   openGraph: {
-    title: "Online Payments | TCC Members' Portal",
+    title: "Online Payments | TCCC Members' Portal",
     description:
-      "Pay dues and bills securely through the official TCC members' portal.",
+      "Pay dues and bills securely through the official TCCC members' portal.",
   },
 };
 
@@ -30,7 +30,7 @@ export default function OnlinePaymentsPage() {
           </h1>
           <p className="text-brand-cream/80 text-lg max-w-3xl mx-auto leading-relaxed">
             Pay your membership dues, event bills, and other charges securely
-            through the official TCC members&apos; portal.
+            through the official TCCC members&apos; portal.
           </p>
         </div>
       </section>
@@ -43,7 +43,7 @@ export default function OnlinePaymentsPage() {
               <CreditCard className="w-10 h-10 text-white" />
             </div>
             <h2 className="text-3xl font-bold text-brand-ink mb-4">
-              TCC Members&apos; Payment Portal
+              TCCC Members&apos; Payment Portal
             </h2>
             <p className="text-brand-ink/70 mb-8 leading-relaxed">
               You will be redirected to the official members&apos; portal at{" "}
@@ -62,7 +62,7 @@ export default function OnlinePaymentsPage() {
               <ExternalLink className="w-4 h-4" />
             </a>
             <p className="text-sm text-brand-ink/50 mt-6">
-              Opens in a new tab. You will need your TCC member credentials.
+              Opens in a new tab. You will need your TCCC member credentials.
             </p>
           </div>
         </div>
@@ -77,7 +77,7 @@ export default function OnlinePaymentsPage() {
             </div>
             <h3 className="font-bold text-brand-ink mb-1">Secure</h3>
             <p className="text-brand-ink/60 text-sm">
-              Payments are processed on the secure official TCC members&apos;
+              Payments are processed on the secure official TCCC members&apos;
               portal.
             </p>
           </div>

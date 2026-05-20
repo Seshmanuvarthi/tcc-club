@@ -14,14 +14,14 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
     default: "Telangana Contractors Cultural Club",
-    template: "%s | TCC",
+    template: "%s | TCCC",
   },
   description:
-    "Telangana Contractors Cultural Club (TCC) is Hyderabad's first vertical members' club at Central Park, Serilingampalle, offering world-class banquets, dining, swimming, gym, sports, and cultural facilities for members and their families.",
+    "Telangana Contractors Cultural Club (TCCC) is Hyderabad's first vertical members' club at Central Park, Serilingampalle, offering world-class banquets, dining, swimming, gym, sports, and cultural facilities for members and their families.",
   keywords: [
-    "TCC Club",
+    "TCCC Club",
     "Telangana Contractors Cultural Club",
-    "TCC Hyderabad",
+    "TCCC Hyderabad",
     "Hyderabad members club",
     "Serilingampalle club",
     "Banquet halls Hyderabad",
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
         url: "/images/logo.png",
         width: 480,
         height: 480,
-        alt: "TCC Club Logo",
+        alt: "TCCC Club Logo",
       },
     ],
   },

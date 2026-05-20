@@ -12,9 +12,9 @@ export const metadata: Metadata = {
   description:
     "Daily news, announcements, and event updates from the Telangana Contractors Cultural Club. Browse the latest newsletters and posts.",
   openGraph: {
-    title: "TCC Newsletter | News & Updates",
+    title: "TCCC Newsletter | News & Updates",
     description:
-      "Stay up to date with the latest news, announcements, and events from TCC.",
+      "Stay up to date with the latest news, announcements, and events from TCCC.",
   },
 };
 
@@ -33,7 +33,7 @@ export default async function NewsletterPage() {
             News &amp; Updates
           </p>
           <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4 leading-tight">
-            TCC <span className="gold-gradient-text">Newsletter</span>
+            TCCC <span className="gold-gradient-text">Newsletter</span>
           </h1>
           <p className="text-brand-cream/80 text-lg max-w-3xl mx-auto leading-relaxed">
             Daily news, announcements, and event updates from the Telangana
@@ -66,7 +66,7 @@ export default async function NewsletterPage() {
             Stay Updated
           </h2>
           <p className="text-brand-cream/70 mb-6">
-            Follow TCC on social media for live updates and event announcements.
+            Follow TCCC on social media for live updates and event announcements.
           </p>
           <Link
             href="https://www.instagram.com/tccclub.in/"

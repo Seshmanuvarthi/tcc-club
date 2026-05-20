@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { requireAdmin } from "@/lib/session";
-import { UtensilsCrossed, Newspaper, Camera, CalendarCheck2, ArrowRight } from "lucide-react";
+import { UtensilsCrossed, Newspaper, Camera, CalendarCheck2, UsersRound, ArrowRight } from "lucide-react";
 import LogoutButton from "./LogoutButton";
 
 export default async function AdminDashboard() {
@@ -96,6 +96,25 @@ export default async function AdminDashboard() {
             </p>
             <span className="inline-flex items-center gap-1 text-brand-red font-semibold group-hover:gap-2 transition-all">
               View Bookings <ArrowRight className="w-4 h-4" />
+            </span>
+          </Link>
+
+          <Link
+            href="/admin/committee"
+            className="group bg-white rounded-3xl p-8 border border-brand-gold/30 shadow-sm card-hover"
+          >
+            <div className="w-16 h-16 bg-gradient-to-br from-brand-gold to-brand-gold-dark rounded-2xl flex items-center justify-center mb-5 shadow-lg shadow-brand-gold/20">
+              <UsersRound className="w-8 h-8 text-white" />
+            </div>
+            <h2 className="text-2xl font-bold text-brand-ink mb-2">
+              Committee
+            </h2>
+            <p className="text-brand-ink/60 mb-5">
+              Add, edit, reorder, or remove managing committee members and
+              upload their photos.
+            </p>
+            <span className="inline-flex items-center gap-1 text-brand-red font-semibold group-hover:gap-2 transition-all">
+              Manage Committee <ArrowRight className="w-4 h-4" />
             </span>
           </Link>
         </div>

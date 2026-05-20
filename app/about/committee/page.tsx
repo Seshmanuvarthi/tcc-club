@@ -1,39 +1,81 @@
 import type { Metadata } from "next";
+import { listCommittee, type CommitteeMember } from "@/lib/blob";
+
+export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "Managing Committee",
   description:
-    "Meet the elected managing committee of the Telangana Contractors Cultural Club for 2024 – 2027 — President, Secretary, Treasurer, and Directors leading TCC.",
+    "Meet the elected managing committee of the Telangana Contractors Cultural Club for 2023 – 2028 — President, Secretary, Treasurer, and Directors leading TCCC.",
   openGraph: {
-    title: "Managing Committee | TCC",
+    title: "Managing Committee | TCCC",
     description:
       "The elected leadership behind the Telangana Contractors Cultural Club, guiding the club's vision and members' experience.",
   },
 };
 
-const members = [
-  { sno: 1,  designation: "President",       name: "Mr. Bollineni Seenaiah" },
-  { sno: 2,  designation: "Vice President",  name: "Mr. Sreepathi Narsimha Reddy" },
-  { sno: 3,  designation: "Secretary",       name: "Mr. Nimma Sachitanand Reddy" },
-  { sno: 4,  designation: "Joint Secretary", name: "Mr. Vemula Satya Murthy" },
-  { sno: 5,  designation: "Treasurer",       name: "Mr. Balmuri Sugunakar Rao" },
-  { sno: 6,  designation: "Director",        name: "Mr. Dachireddy Venkat Narsimha Reddy" },
-  { sno: 7,  designation: "Director",        name: "Mr. Vaddi Bhaskar Reddy" },
-  { sno: 8,  designation: "Director",        name: "Mr. Vanga Ravinder Reddy" },
-  { sno: 9,  designation: "Director",        name: "Mr. Velpucherla Sudhakar" },
-  { sno: 10, designation: "Director",        name: "Mr. Katukuri Devender Reddy" },
-  { sno: 11, designation: "Director",        name: "Mr. Yavanamanda Sitarama Raju" },
-  { sno: 12, designation: "Director",        name: "Mr. Uppula Surender" },
-  { sno: 13, designation: "Director",        name: "Mr. Sankineni Krishna Rao" },
-  { sno: 14, designation: "Director",        name: "Mr. Madireddy Narender Reddy" },
-  { sno: 15, designation: "Director",        name: "Mr. Patlolla Janardhan Reddy" },
-  { sno: 16, designation: "Director",        name: "Mr. Churukanti Pavan" },
-  { sno: 17, designation: "Director",        name: "Mr. Nerella Janardana Rao" },
-];
+function initials(name: string) {
+  return name
+    .replace(/^(Mr|Mrs|Ms|Dr)\.?\s+/i, "")
+    .split(/\s+/)
+    .map((s) => s[0])
+    .filter(Boolean)
+    .slice(0, 2)
+    .join("")
+    .toUpperCase();
+}
 
-const isOfficer = (d: string) => d !== "Director";
+function MemberCard({
+  member,
+  large = false,
+}: {
+  member: CommitteeMember;
+  large?: boolean;
+}) {
+  const photoSize = large ? "w-32 h-32 sm:w-36 sm:h-36" : "w-24 h-24 sm:w-28 sm:h-28";
+  const initialsText = large ? "text-3xl" : "text-2xl";
+  const nameSize = large ? "text-base sm:text-lg" : "text-sm sm:text-base";
 
-export default function CommitteePage() {
+  return (
+    <div className="bg-white rounded-2xl p-5 sm:p-6 border border-brand-gold/30 shadow-sm card-hover flex flex-col items-center text-center">
+      <div
+        className={`${photoSize} rounded-full overflow-hidden bg-gradient-to-br from-brand-gold via-brand-gold to-brand-gold-dark flex items-center justify-center text-white font-bold mb-4 ring-4 ring-brand-gold/20`}
+      >
+        {member.photoUrl ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src={member.photoUrl}
+            alt={member.name}
+            className="w-full h-full object-cover"
+          />
+        ) : (
+          <span className={initialsText}>{initials(member.name)}</span>
+        )}
+      </div>
+      <h3 className={`${nameSize} font-bold text-brand-ink leading-tight mb-1.5`}>
+        {member.name}
+      </h3>
+      <span
+        className={`inline-block ${
+          large ? "bg-brand-red text-white" : "bg-brand-gold/15 text-brand-gold-dark"
+        } text-[10px] sm:text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full`}
+      >
+        {member.designation}
+      </span>
+    </div>
+  );
+}
+
+export default async function CommitteePage() {
+  const members = await listCommittee();
+  // Officers = those whose designation is NOT "Director" (case-insensitive)
+  const officers = members.filter(
+    (m) => m.designation.trim().toLowerCase() !== "director"
+  );
+  const directors = members.filter(
+    (m) => m.designation.trim().toLowerCase() === "director"
+  );
+
   return (
     <>
       {/* Hero */}
@@ -55,50 +97,54 @@ export default function CommitteePage() {
         </div>
       </section>
 
-      {/* Table */}
-      <section className="bg-brand-cream py-8 sm:py-10">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6">
-          <div className="text-center mb-6">
-            <p className="text-brand-red font-semibold uppercase tracking-widest text-sm mb-3">
-              2024 – 2027
-            </p>
-            <h2 className="text-3xl sm:text-4xl font-bold text-brand-ink mb-3">
-              Committee Members
-            </h2>
-            <div className="divider-gold w-32 mx-auto" />
+      {/* Office Bearers */}
+      {officers.length > 0 && (
+        <section className="bg-brand-cream py-10 sm:py-14">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6">
+            <div className="text-center mb-8">
+              <p className="text-brand-red font-semibold uppercase tracking-widest text-sm mb-2">
+                2023 – 2028
+              </p>
+              <h2 className="text-2xl sm:text-3xl font-bold text-brand-ink mb-3">
+                Office Bearers
+              </h2>
+              <div className="divider-gold w-32 mx-auto" />
+            </div>
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-5">
+              {officers.map((m) => (
+                <MemberCard key={m.id} member={m} large />
+              ))}
+            </div>
           </div>
+        </section>
+      )}
 
-          <div className="rounded-2xl overflow-hidden border border-brand-gold/30 shadow-sm">
-            <table className="w-full text-sm">
-              <thead>
-                <tr className="bg-brand-ink text-white">
-                  <th className="text-center px-4 py-3 font-semibold uppercase tracking-wider text-xs w-12">S.No</th>
-                  <th className="text-left px-4 py-3 font-semibold uppercase tracking-wider text-xs">Designation</th>
-                  <th className="text-left px-4 py-3 font-semibold uppercase tracking-wider text-xs">Name</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-brand-gold/15">
-                {members.map((m) => (
-                  <tr
-                    key={m.sno}
-                    className={`transition-colors hover:bg-brand-gold/5 ${
-                      isOfficer(m.designation) ? "bg-white" : "bg-brand-cream/50"
-                    }`}
-                  >
-                    <td className="px-4 py-3 text-center text-brand-ink/40 text-xs font-medium">{m.sno}</td>
-                    <td className="px-4 py-3 font-semibold">
-                      <span className={isOfficer(m.designation) ? "text-brand-red" : "text-brand-gold-dark"}>
-                        {m.designation}
-                      </span>
-                    </td>
-                    <td className="px-4 py-3 font-medium text-brand-ink">{m.name}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+      {/* Directors */}
+      {directors.length > 0 && (
+        <section className="bg-white py-10 sm:py-14 border-t border-brand-gold/20">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6">
+            <div className="text-center mb-8">
+              <h2 className="text-2xl sm:text-3xl font-bold text-brand-ink mb-3">
+                Directors
+              </h2>
+              <div className="divider-gold w-32 mx-auto" />
+            </div>
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-5">
+              {directors.map((m) => (
+                <MemberCard key={m.id} member={m} />
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
+
+      {members.length === 0 && (
+        <section className="bg-brand-cream py-16">
+          <div className="max-w-2xl mx-auto px-4 text-center text-brand-ink/60">
+            <p>Committee members will be listed here once added by the club.</p>
+          </div>
+        </section>
+      )}
     </>
   );
 }

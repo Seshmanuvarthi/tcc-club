@@ -14,7 +14,7 @@ export default function NotFound() {
           <div className="absolute inset-0 bg-brand-gold rounded-full blur-3xl opacity-20" />
           <Image
             src="/images/logo.png"
-            alt="TCC Logo"
+            alt="TCCC Logo"
             width={120}
             height={120}
             className="relative drop-shadow-2xl mx-auto"
@@ -47,7 +47,7 @@ export default function NotFound() {
           >
             <ImageIcon className="w-6 h-6 text-brand-gold" />
             <span className="text-white font-semibold text-sm">Gallery</span>
-            <span className="text-brand-cream/50 text-xs">Moments at TCC</span>
+            <span className="text-brand-cream/50 text-xs">Moments at TCCC</span>
           </Link>
           <Link
             href="/contact"

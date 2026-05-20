@@ -193,7 +193,7 @@ export default function GalleryAdminClient({
           Uploaded Photos ({items.length})
         </h2>
         <p className="text-brand-ink/60 text-sm mb-6">
-          These show on the public gallery after the 6 default TCC images.
+          These show on the public gallery after the 6 default TCCC images.
         </p>
 
         {items.length === 0 ? (

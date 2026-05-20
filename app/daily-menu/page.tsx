@@ -9,11 +9,11 @@ export const dynamic = "force-dynamic";
 export const metadata: Metadata = {
   title: "Daily Menu",
   description:
-    "Today's specials at the TCC restaurant — fresh, delicious, and always changing. Check the daily menu at Telangana Contractors Cultural Club.",
+    "Today's specials at the TCCC restaurant — fresh, delicious, and always changing. Check the daily menu at Telangana Contractors Cultural Club.",
   openGraph: {
-    title: "Today's Daily Menu | TCC",
+    title: "Today's Daily Menu | TCCC",
     description:
-      "What's cooking at TCC today — view our daily menu and book a table.",
+      "What's cooking at TCCC today — view our daily menu and book a table.",
   },
 };
 
@@ -36,7 +36,7 @@ export default async function DailyMenuPage() {
           </h1>
           <p className="text-brand-cream/80 text-lg max-w-3xl mx-auto leading-relaxed">
             Fresh, delicious, and always changing. Here&apos;s what&apos;s on
-            offer at the TCC restaurant today.
+            offer at the TCCC restaurant today.
           </p>
         </div>
       </section>

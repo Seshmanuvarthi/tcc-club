@@ -9,11 +9,11 @@ import {
 export const metadata: Metadata = {
   title: "Facilities",
   description:
-    "Explore TCC's world-class facilities: luxury banquet halls, restaurant & bar, swimming pool, gym & yoga studio, amphitheatre, 30+ guest suites, indoor & outdoor games at Hyderabad's first vertical members' club.",
+    "Explore TCCC's world-class facilities: luxury banquet halls, restaurant & bar, swimming pool, gym & yoga studio, amphitheatre, 30+ guest suites, indoor & outdoor games at Hyderabad's first vertical members' club.",
   openGraph: {
-    title: "TCC Facilities | Hyderabad's First Vertical Club",
+    title: "TCCC Facilities | Hyderabad's First Vertical Club",
     description:
-      "Seven floors of banquets, dining, swimming, sports, wellness, and guest suites — all designed for the comfort and pride of TCC members.",
+      "Seven floors of banquets, dining, swimming, sports, wellness, and guest suites — all designed for the comfort and pride of TCCC members.",
     images: ["/images/ameneties.webp"],
   },
 };
@@ -35,7 +35,7 @@ const facilities: Facility[] = [
     icon: Building2,
     title: "Luxurious Banquets",
     tagline: "Celebrate Every Occasion",
-    desc: "Host weddings, receptions, corporate events, and milestone celebrations in TCC's grand banquet halls. Designed for elegance, equipped for every detail, and supported by a service team committed to making every event memorable.",
+    desc: "Host weddings, receptions, corporate events, and milestone celebrations in TCCC's grand banquet halls. Designed for elegance, equipped for every detail, and supported by a service team committed to making every event memorable.",
     bullets: [
       "Multiple banquet halls of varying capacities",
       "Customizable décor and seating arrangements",
@@ -49,7 +49,7 @@ const facilities: Facility[] = [
     icon: Utensils,
     title: "Restaurant & Bar",
     tagline: "Delicious and Lively",
-    desc: "From traditional Telangana flavours to contemporary multi-cuisine offerings, the TCC restaurant and bar is where members and their families gather to enjoy great food in a warm, refined atmosphere.",
+    desc: "From traditional Telangana flavours to contemporary multi-cuisine offerings, the TCCC restaurant and bar is where members and their families gather to enjoy great food in a warm, refined atmosphere.",
     bullets: [
       "Multi-cuisine restaurant",
       "Well-stocked bar and lounge",
@@ -109,12 +109,12 @@ const additional = [
   {
     icon: Theater,
     title: "Amphitheatre",
-    desc: "An elegant amphitheatre venue for cultural performances, music nights, recitals, and large community gatherings, with stage and audio-visual support.",
+    desc: "An elegant amphitheatre venue for cultural performances, music nights, recitals, and large gatherings, with stage and audio-visual support.",
   },
   {
     icon: Music,
     title: "Cultural Events",
-    desc: "Festivals, performances, and community celebrations are regular features at TCC, keeping our Telangana cultural heritage alive.",
+    desc: "Festivals, performances, and club celebrations are regular features at TCCC, keeping our Telangana cultural heritage alive.",
   },
   {
     icon: Wine,
@@ -137,7 +137,7 @@ export default function FacilitiesPage() {
           </p>
           <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4 leading-tight">
             Experience the Joy of{" "}
-            <span className="gold-gradient-text">TCC Facilities</span>
+            <span className="gold-gradient-text">TCCC Facilities</span>
           </h1>
           <p className="text-brand-cream/80 text-lg max-w-3xl mx-auto leading-relaxed">
             Hyderabad&apos;s first vertical club, seven floors of banquets,
@@ -153,7 +153,7 @@ export default function FacilitiesPage() {
           <div className="bg-white rounded-2xl p-1.5 shadow-lg border border-brand-gold/30">
             <Image
               src="/images/ameneties.webp"
-              alt="TCC World Class Amenities"
+              alt="TCCC World Class Amenities"
               width={800}
               height={500}
               className="rounded-xl w-full h-auto"
@@ -238,7 +238,7 @@ export default function FacilitiesPage() {
               And More
             </p>
             <h2 className="text-2xl sm:text-3xl font-bold text-white">
-              Other Facilities at TCC
+              Other Facilities at TCCC
             </h2>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
@@ -264,7 +264,7 @@ export default function FacilitiesPage() {
       <section className="bg-brand-red py-5">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
           <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3">
-            Ready to Experience TCC?
+            Ready to Experience TCCC?
           </h2>
           <p className="text-white/85 text-sm mb-5 max-w-2xl mx-auto">
             Reserve a banquet, book a table, or plan your next event with us.

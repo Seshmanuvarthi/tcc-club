@@ -3,8 +3,10 @@ import { list, put, del } from "@vercel/blob";
 export const MENU_PREFIX = "menu/";
 export const NEWSLETTER_PREFIX = "newsletter/";
 export const GALLERY_PREFIX = "gallery/";
+export const COMMITTEE_PREFIX = "committee/";
 const GALLERY_INDEX_PATH = "gallery/_index.json";
 const BOOKINGS_INDEX_PATH = "bookings/_index.json";
+const COMMITTEE_INDEX_PATH = "committee/_index.json";
 
 export type NewsletterItem = {
   url: string;
@@ -22,6 +24,15 @@ export type GalleryItem = {
   pathname: string;
   caption: string;
   uploadedAt: string;
+};
+
+export type CommitteeMember = {
+  id: string;
+  name: string;
+  designation: string;
+  sortOrder: number;
+  photoUrl: string | null;
+  photoPathname: string | null;
 };
 
 export type BookingStatus = "new" | "contacted" | "confirmed" | "cancelled";
@@ -320,4 +331,167 @@ export async function deleteBooking(id: string) {
   const remaining = items.filter((b) => b.id !== id);
   if (remaining.length === items.length) throw new Error("Booking not found");
   await writeBookingsIndex(remaining);
+}
+
+// ─── Committee ─────────────────────────────────────────────
+
+const COMMITTEE_SEED: CommitteeMember[] = [
+  { id: "seed-01", name: "Mr. Bollineni Seenaiah",                designation: "President",       sortOrder:  1, photoUrl: null, photoPathname: null },
+  { id: "seed-02", name: "Mr. Sreepathi Narsimha Reddy",          designation: "Vice President",  sortOrder:  2, photoUrl: null, photoPathname: null },
+  { id: "seed-03", name: "Mr. Nimma Sachitanand Reddy",           designation: "Secretary",       sortOrder:  3, photoUrl: null, photoPathname: null },
+  { id: "seed-04", name: "Mr. Vemula Satya Murthy",               designation: "Joint Secretary", sortOrder:  4, photoUrl: null, photoPathname: null },
+  { id: "seed-05", name: "Mr. Balmuri Sugunakar Rao",             designation: "Treasurer",       sortOrder:  5, photoUrl: null, photoPathname: null },
+  { id: "seed-06", name: "Mr. Dachireddy Venkat Narsimha Reddy",  designation: "Director",        sortOrder:  6, photoUrl: null, photoPathname: null },
+  { id: "seed-07", name: "Mr. Vaddi Bhaskar Reddy",               designation: "Director",        sortOrder:  7, photoUrl: null, photoPathname: null },
+  { id: "seed-08", name: "Mr. Vanga Ravinder Reddy",              designation: "Director",        sortOrder:  8, photoUrl: null, photoPathname: null },
+  { id: "seed-09", name: "Mr. Velpucherla Sudhakar",              designation: "Director",        sortOrder:  9, photoUrl: null, photoPathname: null },
+  { id: "seed-10", name: "Mr. Katukuri Devender Reddy",           designation: "Director",        sortOrder: 10, photoUrl: null, photoPathname: null },
+  { id: "seed-11", name: "Mr. Yavanamanda Sitarama Raju",         designation: "Director",        sortOrder: 11, photoUrl: null, photoPathname: null },
+  { id: "seed-12", name: "Mr. Uppula Surender",                   designation: "Director",        sortOrder: 12, photoUrl: null, photoPathname: null },
+  { id: "seed-13", name: "Mr. Sankineni Krishna Rao",             designation: "Director",        sortOrder: 13, photoUrl: null, photoPathname: null },
+  { id: "seed-14", name: "Mr. Madireddy Narender Reddy",          designation: "Director",        sortOrder: 14, photoUrl: null, photoPathname: null },
+  { id: "seed-15", name: "Mr. Patlolla Janardhan Reddy",          designation: "Director",        sortOrder: 15, photoUrl: null, photoPathname: null },
+  { id: "seed-16", name: "Mr. Churukanti Pavan",                  designation: "Director",        sortOrder: 16, photoUrl: null, photoPathname: null },
+  { id: "seed-17", name: "Mr. Nerella Janardana Rao",             designation: "Director",        sortOrder: 17, photoUrl: null, photoPathname: null },
+];
+
+async function findCommitteeIndexBlob() {
+  const { blobs } = await list({ prefix: COMMITTEE_INDEX_PATH });
+  return blobs.find((b) => b.pathname === COMMITTEE_INDEX_PATH) ?? null;
+}
+
+async function readCommitteeIndex(): Promise<CommitteeMember[] | null> {
+  try {
+    const indexBlob = await findCommitteeIndexBlob();
+    if (!indexBlob) return null;
+    const res = await fetch(`${indexBlob.url}?_=${Date.now()}`, {
+      cache: "no-store",
+    });
+    if (!res.ok) return null;
+    const items = await res.json();
+    return Array.isArray(items) ? (items as CommitteeMember[]) : null;
+  } catch (err) {
+    console.error("readCommitteeIndex failed", err);
+    return null;
+  }
+}
+
+async function writeCommitteeIndex(items: CommitteeMember[]) {
+  const existing = await findCommitteeIndexBlob();
+  if (existing) await del(existing.url).catch(() => {});
+  await put(COMMITTEE_INDEX_PATH, JSON.stringify(items, null, 2), {
+    access: "public",
+    contentType: "application/json",
+    addRandomSuffix: false,
+  });
+}
+
+function sortCommittee(items: CommitteeMember[]) {
+  return [...items].sort((a, b) => a.sortOrder - b.sortOrder);
+}
+
+export async function listCommittee(): Promise<CommitteeMember[]> {
+  // Offline / no token — return the seed without persisting
+  if (!process.env.BLOB_READ_WRITE_TOKEN) {
+    return sortCommittee(COMMITTEE_SEED);
+  }
+  const existing = await readCommitteeIndex();
+  if (existing && existing.length > 0) {
+    return sortCommittee(existing);
+  }
+  // First-ever read — seed the manifest, then return
+  try {
+    await writeCommitteeIndex(COMMITTEE_SEED);
+  } catch (err) {
+    console.error("Failed to seed committee", err);
+  }
+  return sortCommittee(COMMITTEE_SEED);
+}
+
+function newId() {
+  return `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
+}
+
+export async function addCommitteeMember(input: {
+  name: string;
+  designation: string;
+  sortOrder: number;
+  photoFile?: File | null;
+}): Promise<CommitteeMember> {
+  const items = await listCommittee();
+  const id = newId();
+  let photoUrl: string | null = null;
+  let photoPathname: string | null = null;
+  if (input.photoFile && input.photoFile.size > 0) {
+    const safe = sanitize(input.photoFile.name);
+    const path = `${COMMITTEE_PREFIX}${id}-${safe}`;
+    const r = await put(path, input.photoFile, {
+      access: "public",
+      contentType: input.photoFile.type || undefined,
+    });
+    photoUrl = r.url;
+    photoPathname = r.pathname;
+  }
+  const member: CommitteeMember = {
+    id,
+    name: input.name.trim(),
+    designation: input.designation.trim(),
+    sortOrder: input.sortOrder,
+    photoUrl,
+    photoPathname,
+  };
+  await writeCommitteeIndex([...items, member]);
+  return member;
+}
+
+export async function updateCommitteeMember(
+  id: string,
+  input: {
+    name?: string;
+    designation?: string;
+    sortOrder?: number;
+    photoFile?: File | null;
+    removePhoto?: boolean;
+  }
+): Promise<CommitteeMember> {
+  const items = await listCommittee();
+  const member = items.find((m) => m.id === id);
+  if (!member) throw new Error("Committee member not found");
+
+  if (input.name !== undefined) member.name = input.name.trim();
+  if (input.designation !== undefined)
+    member.designation = input.designation.trim();
+  if (input.sortOrder !== undefined) member.sortOrder = input.sortOrder;
+
+  // Photo handling: remove first if requested or new file given
+  if (input.removePhoto || (input.photoFile && input.photoFile.size > 0)) {
+    if (member.photoUrl) {
+      await del(member.photoUrl).catch(() => {});
+      member.photoUrl = null;
+      member.photoPathname = null;
+    }
+  }
+  if (input.photoFile && input.photoFile.size > 0) {
+    const safe = sanitize(input.photoFile.name);
+    const path = `${COMMITTEE_PREFIX}${id}-${safe}`;
+    const r = await put(path, input.photoFile, {
+      access: "public",
+      contentType: input.photoFile.type || undefined,
+    });
+    member.photoUrl = r.url;
+    member.photoPathname = r.pathname;
+  }
+
+  await writeCommitteeIndex(items);
+  return member;
+}
+
+export async function deleteCommitteeMember(id: string) {
+  const items = await listCommittee();
+  const member = items.find((m) => m.id === id);
+  if (!member) throw new Error("Committee member not found");
+  if (member.photoUrl) {
+    await del(member.photoUrl).catch(() => {});
+  }
+  await writeCommitteeIndex(items.filter((m) => m.id !== id));
 }

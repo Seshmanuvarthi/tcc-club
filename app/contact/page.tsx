@@ -6,9 +6,9 @@ export const metadata: Metadata = {
   description:
     "Get in touch with the Telangana Contractors Cultural Club at Central Park, Serilingampalle, Hyderabad. Reach our GM, accounts, HR, restaurant, and room booking desks directly.",
   openGraph: {
-    title: "Contact TCC",
+    title: "Contact TCCC",
     description:
-      "Speak to the right person at TCC — booking, enquiries, memberships, accounts, and dining contacts.",
+      "Speak to the right person at TCCC — booking, enquiries, memberships, accounts, and dining contacts.",
   },
 };
 
@@ -81,7 +81,7 @@ export default function ContactPage() {
             Get In Touch
           </p>
           <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4 leading-tight">
-            Contact <span className="gold-gradient-text">TCC</span>
+            Contact <span className="gold-gradient-text">TCCC</span>
           </h1>
           <p className="text-brand-cream/80 text-lg max-w-3xl mx-auto leading-relaxed">
             For bookings, enquiries, memberships, or general questions, our
@@ -212,7 +212,7 @@ export default function ContactPage() {
           </div>
           <div className="rounded-2xl overflow-hidden shadow-lg border border-brand-gold/20 h-[420px]">
             <iframe
-              title="TCC Location"
+              title="TCCC Location"
               src="https://maps.google.com/maps?q=17.48142868331059,78.34402073747616&z=17&output=embed"
               width="100%"
               height="100%"

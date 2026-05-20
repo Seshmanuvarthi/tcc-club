@@ -45,7 +45,7 @@ export default function Navbar() {
           <Link href="/" className="flex items-center gap-2.5 shrink-0">
             <Image
               src="/images/logo.png"
-              alt="TCC Logo"
+              alt="TCCC Logo"
               width={40}
               height={40}
               className="rounded-full"

@@ -42,7 +42,7 @@ export default function LoginPage() {
           <div className="text-center mb-8">
             <Image
               src="/images/logo.png"
-              alt="TCC Logo"
+              alt="TCCC Logo"
               width={72}
               height={72}
               className="mx-auto mb-4 rounded-full"

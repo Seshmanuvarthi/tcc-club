@@ -39,7 +39,7 @@ export default async function AdminGalleryPage() {
             </div>
           </div>
           <p className="text-xs text-brand-ink/50 mt-3 ml-[72px]">
-            Note: the 6 default TCC marketing images on the public gallery are
+            Note: the 6 default TCCC marketing images on the public gallery are
             permanent and managed in code. The photos you upload here appear
             after those.
           </p>
