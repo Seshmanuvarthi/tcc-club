@@ -70,8 +70,8 @@ export default function Home() {
         <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 py-16 grid lg:grid-cols-5 gap-10 items-center">
           <div className="lg:col-span-3">
             <div className="flex items-center gap-3 mb-4">
-              <div className="h-px w-12 bg-brand-gold" />
-              <p className="text-brand-gold font-semibold tracking-widest uppercase text-xs sm:text-sm">
+              <div className="h-px w-12 bg-brand-red" />
+              <p className="text-brand-red font-semibold tracking-widest uppercase text-xs sm:text-sm">
                 Telangana Contractors Cultural Club
               </p>
             </div>
