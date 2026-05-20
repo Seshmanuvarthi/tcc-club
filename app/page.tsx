@@ -69,12 +69,6 @@ export default function Home() {
 
         <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 py-16 grid lg:grid-cols-5 gap-10 items-center">
           <div className="lg:col-span-3">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="h-px w-12 bg-brand-red" />
-              <p className="text-brand-red font-semibold tracking-widest uppercase text-xs sm:text-sm">
-                Telangana Contractors Cultural Club
-              </p>
-            </div>
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4 leading-tight">
               Where Tradition Meets{" "}
               <span className="gold-gradient-text">Excellence</span>

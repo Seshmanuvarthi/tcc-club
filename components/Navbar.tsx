@@ -55,7 +55,7 @@ export default function Navbar() {
               <div className="font-bold text-brand-red text-sm tracking-wide">
                 Telangana Contractors
               </div>
-              <div className="text-[10px] text-brand-gold-dark font-semibold tracking-widest uppercase">
+              <div className="text-[10px] text-brand-red font-semibold tracking-widest uppercase">
                 Cultural Club
               </div>
             </div>
